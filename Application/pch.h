@@ -11,5 +11,10 @@
 #endif
 
 #include <Windows.h>
-#include <vector>
 #include <memory>
+#include <string>
+
+#include "Math/ScreenPoint.h"
+
+
+using namespace JE;

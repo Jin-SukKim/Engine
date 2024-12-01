@@ -7,10 +7,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application.h">
+    <ClInclude Include="pch.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="pch.h">
+    <ClInclude Include="WindowsApp.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

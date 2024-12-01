@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Application\\Application.vcxproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Engine\\Engine.vcxproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Math\\Math.vcxproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Renderer\\Renderer.vcxproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

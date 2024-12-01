@@ -9,8 +9,8 @@ ScreenPoint& ScreenPoint::operator=(const ScreenPoint& screenPos)
 		if (&screenPos == this) // 주소가 같으면
 			return *this;
 
-		x = screenPos.x;
-		y = screenPos.y;
+		X = screenPos.X;
+		Y = screenPos.Y;
 
 		return *this;
 	}
@@ -18,12 +18,12 @@ ScreenPoint& ScreenPoint::operator=(const ScreenPoint& screenPos)
 
 ScreenPoint JE::ScreenPoint::operator+(const ScreenPoint& pos) const
 {
-	return ScreenPoint(x + pos.x, y + pos.y);
+	return ScreenPoint(X + pos.X, Y + pos.Y);
 }
 
 ScreenPoint JE::ScreenPoint::operator-(const ScreenPoint& pos) const
 {
-	return ScreenPoint(x - pos.x, y - pos.y);
+	return ScreenPoint(X - pos.X, Y - pos.Y);
 }
 
 ScreenPoint& JE::ScreenPoint::operator+=(const ScreenPoint& pos)
@@ -40,12 +40,12 @@ ScreenPoint& JE::ScreenPoint::operator-=(const ScreenPoint& pos)
 
 bool JE::ScreenPoint::operator==(const ScreenPoint& pos) const
 {
-	return x == pos.x && y == pos.y;
+	return X == pos.X && Y == pos.Y;
 }
 
 bool JE::ScreenPoint::operator!=(const ScreenPoint& pos) const
 {
-	return x != pos.x || y != pos.y;
+	return X != pos.X || Y != pos.Y;
 }
 
 ScreenPoint JE::ScreenPoint::ToScreenCoordinate(const ScreenPoint& screenSize, const Vector2& pos)
@@ -54,7 +54,7 @@ ScreenPoint JE::ScreenPoint::ToScreenCoordinate(const ScreenPoint& screenSize, c
 	// 스크린 좌표계는 y값이 증가할수록 아래로 내려가기에 데카르트 좌표계 y를 -로 변환
 
 	// [-halfWidth, halfWidth] x [-halfHeight, halfHeight] => [0, width] x [0, height], y를 -로 변환(반대방향)
-	return ScreenPoint(pos.x + screenSize.x * 0.5f, -pos.y + screenSize.y * 0.5f);
+	return ScreenPoint(pos.X + screenSize.X * 0.5f, -pos.Y + screenSize.Y * 0.5f);
 }
 
 Vector2 JE::ScreenPoint::ToCartesianCoordinate(const ScreenPoint& screenSize)
@@ -67,5 +67,5 @@ Vector2 JE::ScreenPoint::ToCartesianCoordinate(const ScreenPoint& screenSize)
 	// 스크린 좌표 영역을 대표하는 값으로 해당 영역의 중점을 사용 
 	// ex) 중앙 픽셀의 데카르트 좌표 (0.5, -0.5), 오른쪽 하단 픽셀
 	// 스크린 좌표계는 픽셀을 의미하므로 0.5를 더해 픽셀 정중앙을 의미하게 한 뒤 좌표계를 변환
-	return Vector2(x + 0.5f - screenSize.x * 0.5f, -(y + 0.5f) + screenSize.y * 0.5f);
+	return Vector2(X + 0.5f - screenSize.X * 0.5f, -(Y + 0.5f) + screenSize.Y * 0.5f);
 }
