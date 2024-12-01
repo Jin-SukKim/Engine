@@ -13,12 +13,12 @@ namespace WindowsApp {
 		wcex.cbClsExtra = 0;
 		wcex.cbWndExtra = 0;
 		wcex.hInstance = hInstance;
-		wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_APPLICATION));
+		wcex.hIcon = LoadIconW(hInstance, IDI_APPLICATION);
 		wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
 		wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
 		wcex.lpszMenuName = NULL;
 		wcex.lpszClassName = windowName.c_str();
-		wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(108));
+		wcex.hIconSm = LoadIconW(wcex.hInstance, MAKEINTRESOURCE(108));
 
 		return RegisterClassExW(&wcex);
 	}
@@ -27,14 +27,14 @@ namespace WindowsApp {
 	HWND Create(const HINSTANCE& hInstance, const std::wstring& windowName, const ScreenPoint& screenSize, WNDPROC proc) {
 		if (!Register(hInstance, windowName, proc)) {
 			MessageBoxW(0, L"RegisterClass FAILED", 0, 0);
-			return false;
+			return NULL;
 		}
 
 		RECT rect;
 		rect.left = 0;
 		rect.top = 0;
-		rect.right = screenSize.x - 1;
-		rect.bottom = screenSize.y - 1;
+		rect.right = screenSize.X - 1;
+		rect.bottom = screenSize.Y - 1;
 		::AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false); // 타이틀바, 메뉴, 테두리 등을 제외한 크기 조정
 		int windowWidth = rect.right - rect.left + 1;
 		int windowHeight = rect.bottom - rect.top + 1;
@@ -57,7 +57,7 @@ namespace WindowsApp {
 
 		if (!hwnd) {
 			::MessageBox(0, L"Create Window Failed", 0, 0);
-			return;
+			return NULL;
 		}
 
 		return hwnd;

@@ -14,7 +14,6 @@
 #include <memory>
 #include <string>
 
-#include "Math/ScreenPoint.h"
-
+#include "Math/MathHeaders.h"
 
 using namespace JE;
