@@ -11,6 +11,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application", "Application\
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{E555B586-A648-4C46-8D8A-56BFB33ABF83}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1B0D06E0-3451-4454-B234-AE677FAC681C} = {1B0D06E0-3451-4454-B234-AE677FAC681C}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math", "Math\Math.vcxproj", "{1B0D06E0-3451-4454-B234-AE677FAC681C}"
 EndProject

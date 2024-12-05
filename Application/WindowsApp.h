@@ -108,6 +108,41 @@ namespace WindowsApp {
 			::PostQuitMessage(0);
 			return 0;
 		}
+		case WM_KEYDOWN:
+		{
+			if (wParam == VK_ESCAPE) // esc 버튼
+				Destroy(hwnd);
+			break;
+		}
+		case WM_PAINT:
+		{
+			// DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체이며
+			// GDI 모듈에 의해 관리 (폰트, 선의 굵기, 색상 등)
+			PAINTSTRUCT ps;
+			HDC hdc = BeginPaint(hwnd, &ps);
+
+			// 색상 변경
+			HBRUSH brush = CreateSolidBrush(RGB(255, 0, 255)); // brush 생성(메모리에 할당)
+			// 생성한 brush를 사용하도록 변경하고 기존의 brush를 저장해두기
+			HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush); // 사용하던 brush 반환
+
+			Rectangle(hdc, 100, 100, 200, 200);
+
+			SelectObject(hdc, oldBrush); // 다시 원래 brush로 변경
+			DeleteObject(brush); // 생성한 brush는 이제 사용하지 않으므로 메모리에서 삭제
+
+			// 펜 생성
+			HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+			HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
+
+			Ellipse(hdc, 200, 200, 300, 300);
+
+			SelectObject(hdc, oldPen);
+			DeleteObject(redPen);
+
+			EndPaint(hwnd, &ps);
+			break;
+		}
 		//case WM_SYSCOMMAND:
 		//{
 		//	if (wParam == SC_SCREENSAVE || wParam == SC_MONITORPOWER || wParam == SC_KEYMENU)
