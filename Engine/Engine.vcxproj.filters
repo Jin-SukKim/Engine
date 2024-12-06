@@ -22,6 +22,9 @@
     <ClInclude Include="TimeManager.h">
       <Filter>Source Files\public</Filter>
     </ClInclude>
+    <ClInclude Include="EngineHeaders.h">
+      <Filter>Source Files\public</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

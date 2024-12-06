@@ -16,10 +16,19 @@
     <ClInclude Include="pch.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="BitmapBuffer.h">
+      <Filter>Source Files\public</Filter>
+    </ClInclude>
+    <ClInclude Include="RendererHeaders.h">
+      <Filter>Source Files\public</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapBuffer.cpp">
+      <Filter>Source Files\private</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

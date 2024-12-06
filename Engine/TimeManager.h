@@ -2,7 +2,6 @@
 
 namespace JE {
 
-	
 class TimeManager
 {
 public:
