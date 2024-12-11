@@ -8,9 +8,8 @@ class TimeManager;
 class Engine
 {
 public:
-	void Init();
-	void Tick(float DeltaTime);
-	void Render(HDC hdc);
+	virtual void Init();
+	virtual void Tick(float DeltaTime);
 
 	const TimeManager& GetTimeManager() const { return _timeManager; }
 

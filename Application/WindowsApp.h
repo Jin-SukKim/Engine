@@ -39,7 +39,7 @@ namespace WindowsApp {
 		int windowWidth = rect.right - rect.left + 1;
 		int windowHeight = rect.bottom - rect.top + 1;
 
-		// 등록된 윈도우창 생성
+		// 등록된 윈도우창 생성해 윈도우창의 핸들 반환
 		HWND hwnd = ::CreateWindowW(
 			windowName.c_str(),
 			windowName.c_str(),
