@@ -22,12 +22,27 @@
     <ClInclude Include="RendererHeaders.h">
       <Filter>Source Files\public</Filter>
     </ClInclude>
+    <ClInclude Include="CppRenderer.h">
+      <Filter>Source Files\public</Filter>
+    </ClInclude>
+    <ClInclude Include="RendererInterface.h">
+      <Filter>Source Files\public</Filter>
+    </ClInclude>
+    <ClInclude Include="CppRenderer2D.h">
+      <Filter>Source Files\public</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BitmapBuffer.cpp">
+      <Filter>Source Files\private</Filter>
+    </ClCompile>
+    <ClCompile Include="CppRenderer.cpp">
+      <Filter>Source Files\private</Filter>
+    </ClCompile>
+    <ClCompile Include="CppRenderer2D.cpp">
       <Filter>Source Files\private</Filter>
     </ClCompile>
   </ItemGroup>

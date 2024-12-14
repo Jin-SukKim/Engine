@@ -96,6 +96,24 @@ void BitmapBuffer::ClearDepthBuffer()
     }
 }
 
+void BitmapBuffer::SetDepthBufferValue(const ScreenPoint& pos, float depth)
+{
+    // depthBuffer가 생성되지 않았거나 화면 밖이라면
+    if (_depthBuffer.empty() || !IsInScreen(pos))
+        return;
+
+    _depthBuffer[GetScreenBufferIndex(pos)] = depth;
+}
+
+float BitmapBuffer::GetDepthBufferValue(const ScreenPoint& pos) const
+{
+    // depthBuffer가 생성되지 않았거나 화면 밖이라면
+    if (_depthBuffer.empty() || !IsInScreen(pos))
+        return INFINITY;
+
+    return _depthBuffer[GetScreenBufferIndex(pos)];
+}
+
 Color BitmapBuffer::GetPixel(const ScreenPoint& pos)
 {
     if (!IsInScreen(pos))
@@ -136,7 +154,7 @@ void BitmapBuffer::DrawStatisticTexts()
     }
 }
 
-bool BitmapBuffer::IsInScreen(const ScreenPoint& pos)
+bool BitmapBuffer::IsInScreen(const ScreenPoint& pos) const
 {
     // Bitmap 캔버스 범위 밖인지 확인
     if (pos.X < 0 || pos.X >= _screenSize.X || pos.Y < 0 || pos.Y >= _screenSize.Y)
