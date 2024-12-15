@@ -1,12 +1,21 @@
 #include "pch.h"
 #include "Engine.h"
+#include "TimeManager.h"
 
-using namespace JE;
+namespace JE {
+	bool Engine::Init()
+	{
+		if (!GetTimeManager()->Init())
+			return false;
 
-void Engine::Init()
-{
-}
+		return true;
+	}
 
-void Engine::Tick(float DeltaTime)
-{
-}
+	void Engine::Tick(float DeltaTime)
+	{
+	}
+
+	void Engine::Render()
+	{
+	}
+};

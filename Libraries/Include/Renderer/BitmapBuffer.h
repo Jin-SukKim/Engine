@@ -9,7 +9,7 @@ class BitmapBuffer
 {
 public:
 	BitmapBuffer(HWND hwnd) : _hwnd(hwnd) {}
-	~BitmapBuffer() {}
+	virtual ~BitmapBuffer() {}
 
 	// bitmap 이미지를 화면으로 사용하기 위해 화면의 크기만큼 크기 설정
 	bool Init(const ScreenPoint& screenSize);
@@ -18,6 +18,7 @@ public:
 	void Clear(const Color32& bgColor);
 	void Release();
 
+	ScreenPoint GetScreenSize() const { return _screenSize; };
 	// Bitmap의 색상 버퍼 가져오기
 	Color32* GetScreenBuffer() const;
 
@@ -30,7 +31,6 @@ public:
 	void SetPixel(const ScreenPoint& pos, const Color& color);
 
 	void DrawStatisticTexts();
-
 
 private:
 	// 그려지는 화면 안에 있는지

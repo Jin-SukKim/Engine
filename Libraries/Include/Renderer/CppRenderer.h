@@ -4,22 +4,20 @@
 
 namespace JE {
 
-enum class DrawMode {
-	Normal = 0,
-	Wireframe,
-	DepthBuffer
-};
-
 // Bitmap을 사용한 Rendering
-class CppRenderer : public BitmapBuffer, RendererInterface
+class CppRenderer : public BitmapBuffer, public RendererInterface
 {
 	using Super = BitmapBuffer;
 public:
+	CppRenderer(HWND hwnd) : Super(hwnd) {}
+	virtual ~CppRenderer() override {}
+
 	virtual bool Init(const ScreenPoint& screenSize) override;
 	virtual void Clear(const Color& bgColor) override;
 
 	virtual void Render() override;
 
+	virtual ScreenPoint GetScreenSize() const override { return Super::GetScreenSize(); }
 	// 점 그리기
 	virtual void DrawPoint(const Vector2& pos, const Color& color) override;
 	virtual void DrawPoint(const ScreenPoint& pos, const Color& color) override;

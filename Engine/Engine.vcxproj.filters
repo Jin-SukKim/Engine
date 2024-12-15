@@ -11,6 +11,12 @@
     <Filter Include="Source Files\private">
       <UniqueIdentifier>{ea8481c1-70dc-4575-b814-6bfa7cd0b0ae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\private\Manager">
+      <UniqueIdentifier>{17cbff91-83a3-4e9a-8b7b-9b23d846d0ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Manager">
+      <UniqueIdentifier>{6c033abe-568a-4c10-8aca-9c6868a8cb85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -19,22 +25,22 @@
     <ClInclude Include="Engine.h">
       <Filter>Source Files\public</Filter>
     </ClInclude>
-    <ClInclude Include="TimeManager.h">
-      <Filter>Source Files\public</Filter>
-    </ClInclude>
     <ClInclude Include="EngineHeaders.h">
       <Filter>Source Files\public</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>Source Files\public\Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TimeManager.cpp">
-      <Filter>Source Files\private</Filter>
-    </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files\private</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>Source Files\private\Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

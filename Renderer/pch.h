@@ -7,7 +7,6 @@
 #endif
 
 #include <Windows.h>
-#include <vector>
-#include <string>
 
 #include "Math/MathHeaders.h"
+#include "RendererHeaders.h"

@@ -11,6 +11,18 @@
     <Filter Include="Source Files\private">
       <UniqueIdentifier>{3524f72c-e5ee-4eaa-a370-9077629ffdbd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\public\Color">
+      <UniqueIdentifier>{855c47f5-4fb5-498e-b870-9758b48a5ae3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Color">
+      <UniqueIdentifier>{0a9658aa-c50e-44c3-92ec-cd2fa45334ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Vector">
+      <UniqueIdentifier>{d1dc4b54-db2e-469f-a535-0472f229b86e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Vector">
+      <UniqueIdentifier>{ae0ea25e-33e9-4448-a554-07c2e18fb58a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -22,20 +34,20 @@
     <ClInclude Include="MathUtils.h">
       <Filter>Source Files\public</Filter>
     </ClInclude>
-    <ClInclude Include="ScreenPoint.h">
-      <Filter>Source Files\public</Filter>
-    </ClInclude>
     <ClInclude Include="Types.h">
       <Filter>Source Files\public</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2.h">
-      <Filter>Source Files\public</Filter>
+    <ClInclude Include="Color.h">
+      <Filter>Source Files\public\Color</Filter>
     </ClInclude>
     <ClInclude Include="Color32.h">
-      <Filter>Source Files\public</Filter>
+      <Filter>Source Files\public\Color</Filter>
     </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>Source Files\public</Filter>
+    <ClInclude Include="ScreenPoint.h">
+      <Filter>Source Files\public\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Source Files\public\Vector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -45,17 +57,17 @@
     <ClCompile Include="MathUtils.cpp">
       <Filter>Source Files\private</Filter>
     </ClCompile>
-    <ClCompile Include="ScreenPoint.cpp">
-      <Filter>Source Files\private</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector2.cpp">
-      <Filter>Source Files\private</Filter>
+    <ClCompile Include="Color.cpp">
+      <Filter>Source Files\private\Color</Filter>
     </ClCompile>
     <ClCompile Include="Color32.cpp">
-      <Filter>Source Files\private</Filter>
+      <Filter>Source Files\private\Color</Filter>
     </ClCompile>
-    <ClCompile Include="Color.cpp">
-      <Filter>Source Files\private</Filter>
+    <ClCompile Include="Vector2.cpp">
+      <Filter>Source Files\private\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenPoint.cpp">
+      <Filter>Source Files\private\Vector</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
