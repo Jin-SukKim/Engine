@@ -29,6 +29,12 @@
     <Filter Include="Source Files\private\Matrix">
       <UniqueIdentifier>{e128e0e0-a04e-4225-9978-4a4a963e4849}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\private\Shape">
+      <UniqueIdentifier>{64d15e4d-b06e-4d88-8515-745bf809d435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Shape">
+      <UniqueIdentifier>{aa3bb049-7c3f-4214-9509-032b63b328de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -70,6 +76,21 @@
     <ClInclude Include="Matrix4x4.h">
       <Filter>Source Files\public\Matrix</Filter>
     </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Source Files\public\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Source Files\public\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Source Files\public\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Source Files\public\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Source Files\public\Vector</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -104,6 +125,21 @@
     </ClCompile>
     <ClCompile Include="Matrix4x4.cpp">
       <Filter>Source Files\private\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Source Files\private\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Source Files\private\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Source Files\private\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Source Files\private\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Source Files\private\Vector</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

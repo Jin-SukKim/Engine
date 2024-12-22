@@ -43,6 +43,12 @@
     <ClInclude Include="CppRenderer.h">
       <Filter>Source Files\public\CPP</Filter>
     </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Source Files\public\CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CppShader.h">
+      <Filter>Source Files\public\CPP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

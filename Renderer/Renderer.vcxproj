@@ -186,9 +186,11 @@ attrib +r /s "..\Libraries\Include\Renderer\*.h"</Command>
     <ClInclude Include="BitmapBuffer.h" />
     <ClInclude Include="CppRenderer.h" />
     <ClInclude Include="CppRenderer2D.h" />
+    <ClInclude Include="CppShader.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="RendererHeaders.h" />
     <ClInclude Include="RendererInterface.h" />
+    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BitmapBuffer.cpp" />

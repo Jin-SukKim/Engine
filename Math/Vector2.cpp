@@ -84,6 +84,33 @@ namespace JE {
         return *this;
     }
 
+    Vector2 Vector2::operator*(const Matrix2x2& m) const
+    {
+        Matrix2x2 transposedM = m.Transpose();
+        return Vector2(
+            this->Dot(transposedM[0]), this->Dot(transposedM[1])
+        );
+    }
+
+    Vector2 Vector2::operator*(const Matrix3x3& m) const
+    {
+        Vector3 v(*this);
+        v = v * m;
+        return v.ToVector2();
+    }
+
+    Vector2& Vector2::operator*=(const Matrix2x2& m)
+    {
+        *this = *this * m;
+        return *this;
+    }
+
+    Vector2& Vector2::operator*=(const Matrix3x3& m)
+    {
+        *this = *this * m;
+        return *this;
+    }
+
     bool Vector2::operator==(const Vector2& v)
     {
         return Equal(v);

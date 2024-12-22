@@ -23,3 +23,8 @@
 #include "ScreenPoint.h"
 #include "Color32.h"
 #include "Color.h"
+
+#include "Rectangle.h"
+#include "Circle.h"
+#include "Box.h"
+#include "Sphere.h"

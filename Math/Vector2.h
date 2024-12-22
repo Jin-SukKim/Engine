@@ -2,6 +2,9 @@
 
 namespace JE {
 
+struct Matrix2x2;
+struct Matrix3x3;
+
 struct Vector2
 {
 	Vector2() : X(0.f), Y(0.f) {}
@@ -14,7 +17,7 @@ struct Vector2
 	float& operator[](uint8 index);
 	Vector2 operator-() const; // 벡터의 부호 반전
 
-	// 연산자 dhqjfheld
+	// 연산자 오버로딩
 	Vector2 operator+(const Vector2& v) const;
 	Vector2 operator-(const Vector2& v) const;
 	Vector2 operator*(const Vector2& v) const;
@@ -25,6 +28,11 @@ struct Vector2
 	Vector2& operator*=(const Vector2& v);
 	Vector2& operator*=(const float& scalar);
 	Vector2& operator/=(const float& scalar);
+
+	Vector2 operator*(const Matrix2x2& m) const;
+	Vector2 operator*(const Matrix3x3& m) const;
+	Vector2& operator*=(const Matrix2x2& m);
+	Vector2& operator*=(const Matrix3x3& m);
 
 	bool operator==(const Vector2& v);
 	// 허용 오차 범위 = SMALL_NUMBER
