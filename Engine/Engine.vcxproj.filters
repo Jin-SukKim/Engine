@@ -17,6 +17,18 @@
     <Filter Include="Source Files\public\Manager">
       <UniqueIdentifier>{6c033abe-568a-4c10-8aca-9c6868a8cb85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\public\Actor">
+      <UniqueIdentifier>{93cc964c-423b-446c-ad00-bbdce4c4025f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Actor">
+      <UniqueIdentifier>{59115489-e6d6-49b8-ba38-5749656877f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Component">
+      <UniqueIdentifier>{f949126e-8089-409a-a267-157720b67919}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Component">
+      <UniqueIdentifier>{742620c9-5781-4068-83c0-b1e7d7c2dc3a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -31,6 +43,15 @@
     <ClInclude Include="TimeManager.h">
       <Filter>Source Files\public\Manager</Filter>
     </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Source Files\public</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Source Files\public\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Source Files\public\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -41,6 +62,15 @@
     </ClCompile>
     <ClCompile Include="TimeManager.cpp">
       <Filter>Source Files\private\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Source Files\private\Actor</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files\private</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Source Files\private\Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -23,6 +23,12 @@
     <Filter Include="Source Files\public\Vector">
       <UniqueIdentifier>{ae0ea25e-33e9-4448-a554-07c2e18fb58a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\public\Matrix">
+      <UniqueIdentifier>{159b7f8c-a0ad-4ede-97f8-83624052b341}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Matrix">
+      <UniqueIdentifier>{e128e0e0-a04e-4225-9978-4a4a963e4849}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -49,6 +55,21 @@
     <ClInclude Include="Vector2.h">
       <Filter>Source Files\public\Vector</Filter>
     </ClInclude>
+    <ClInclude Include="Matrix2x2.h">
+      <Filter>Source Files\public\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3x3.h">
+      <Filter>Source Files\public\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Source Files\public\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4.h">
+      <Filter>Source Files\public\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4x4.h">
+      <Filter>Source Files\public\Matrix</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -68,6 +89,21 @@
     </ClCompile>
     <ClCompile Include="ScreenPoint.cpp">
       <Filter>Source Files\private\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3x3.cpp">
+      <Filter>Source Files\private\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix2x2.cpp">
+      <Filter>Source Files\private\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3.cpp">
+      <Filter>Source Files\private\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector4.cpp">
+      <Filter>Source Files\private\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4x4.cpp">
+      <Filter>Source Files\private\Matrix</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
