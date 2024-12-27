@@ -35,18 +35,21 @@
     <Filter Include="Source Files\public\Shape">
       <UniqueIdentifier>{aa3bb049-7c3f-4214-9509-032b63b328de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\private\Utils">
+      <UniqueIdentifier>{6d32a07b-f944-4f75-a333-8409c178d4be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Utils">
+      <UniqueIdentifier>{650afaaa-2189-4a71-ab16-591e5c6cd152}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Rotation">
+      <UniqueIdentifier>{386e111c-afa2-4500-9709-fe45cd478797}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Rotation">
+      <UniqueIdentifier>{a8c2bd5f-b529-433c-9aa3-74de2c54a46c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="MathHeaders.h">
-      <Filter>Source Files\public</Filter>
-    </ClInclude>
-    <ClInclude Include="MathUtils.h">
-      <Filter>Source Files\public</Filter>
-    </ClInclude>
-    <ClInclude Include="Types.h">
       <Filter>Source Files\public</Filter>
     </ClInclude>
     <ClInclude Include="Color.h">
@@ -88,17 +91,26 @@
     <ClInclude Include="Sphere.h">
       <Filter>Source Files\public\Shape</Filter>
     </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>Source Files\public\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtils.h">
+      <Filter>Source Files\public\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Source Files\public</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Source Files\public\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotator.h">
+      <Filter>Source Files\public\Rotation</Filter>
+    </ClInclude>
     <ClInclude Include="Quaternion.h">
-      <Filter>Source Files\public\Vector</Filter>
+      <Filter>Source Files\public\Rotation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MathUtils.cpp">
-      <Filter>Source Files\private</Filter>
-    </ClCompile>
     <ClCompile Include="Color.cpp">
       <Filter>Source Files\private\Color</Filter>
     </ClCompile>
@@ -138,8 +150,20 @@
     <ClCompile Include="Box.cpp">
       <Filter>Source Files\private\Shape</Filter>
     </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files\private</Filter>
+    </ClCompile>
+    <ClCompile Include="MathUtils.cpp">
+      <Filter>Source Files\private\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>Source Files\private\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotator.cpp">
+      <Filter>Source Files\private\Rotation</Filter>
+    </ClCompile>
     <ClCompile Include="Quaternion.cpp">
-      <Filter>Source Files\private\Vector</Filter>
+      <Filter>Source Files\private\Rotation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

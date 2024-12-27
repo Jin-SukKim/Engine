@@ -28,3 +28,4 @@
 #include "Circle.h"
 #include "Box.h"
 #include "Sphere.h"
+#include "Plane.h"
