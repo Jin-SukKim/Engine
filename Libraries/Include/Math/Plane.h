@@ -13,7 +13,7 @@ struct Plane
 	// 평면을 구성하는 a, b, c, d가 Vector4로 주어질 때 (평면의 방정식 : ax + by + cz + d = 0)
 	Plane(const Vector4& v);
 
-	// point < 0 : 평면의 안쪽, point == 0 : 평면의 위, 0 < point : 평면의 바깥, 절대값은 평면에서 임의의 점까지의 최단거리
+	// distance < 0 : 평면의 안쪽, distance == 0 : 평면의 위, 0 < distance : 평면의 바깥, 절대값은 평면에서 임의의 점까지의 최단거리
 	float Distance(const Vector3& point) const;
 	// 임의의 점이 평면의 내부/외부인지 판별
 	bool IsOutside(const Vector3& point) const;

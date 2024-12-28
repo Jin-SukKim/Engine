@@ -109,6 +109,9 @@
     <ClInclude Include="Quaternion.h">
       <Filter>Source Files\public\Rotation</Filter>
     </ClInclude>
+    <ClInclude Include="Frustum.h">
+      <Filter>Source Files\public\Shape</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Color.cpp">
@@ -164,6 +167,9 @@
     </ClCompile>
     <ClCompile Include="Quaternion.cpp">
       <Filter>Source Files\private\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Frustum.cpp">
+      <Filter>Source Files\private\Shape</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

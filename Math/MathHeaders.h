@@ -29,3 +29,7 @@
 #include "Box.h"
 #include "Sphere.h"
 #include "Plane.h"
+#include "Frustum.h"
+
+#include "Rotator.h"
+#include "Quaternion.h"

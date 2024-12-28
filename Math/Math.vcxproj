@@ -187,6 +187,7 @@ attrib +r /s "..\Libraries\Include\Math\*.h"</Command>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Color32.h" />
+    <ClInclude Include="Frustum.h" />
     <ClInclude Include="MathHeaders.h" />
     <ClInclude Include="MathUtils.h" />
     <ClInclude Include="Matrix2x2.h" />
@@ -209,6 +210,7 @@ attrib +r /s "..\Libraries\Include\Math\*.h"</Command>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Color32.cpp" />
+    <ClCompile Include="Frustum.cpp" />
     <ClCompile Include="MathUtils.cpp" />
     <ClCompile Include="Matrix2x2.cpp" />
     <ClCompile Include="Matrix3x3.cpp" />
