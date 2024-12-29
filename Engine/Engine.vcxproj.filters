@@ -29,15 +29,21 @@
     <Filter Include="Source Files\public\Component">
       <UniqueIdentifier>{742620c9-5781-4068-83c0-b1e7d7c2dc3a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\public\Input">
+      <UniqueIdentifier>{547462bc-8f24-4cd5-8763-af5b25a098b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Common">
+      <UniqueIdentifier>{dfb0819c-f86b-460d-8a06-fd9a4f7d8b63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Common">
+      <UniqueIdentifier>{6c039635-c2ea-4c05-a9bc-3414dfdc4307}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">
-      <Filter>Source Files\public</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineHeaders.h">
       <Filter>Source Files\public</Filter>
     </ClInclude>
     <ClInclude Include="TimeManager.h">
@@ -52,13 +58,22 @@
     <ClInclude Include="Component.h">
       <Filter>Source Files\public\Component</Filter>
     </ClInclude>
+    <ClInclude Include="InputTypes.h">
+      <Filter>Source Files\public\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineHeaders.h">
+      <Filter>Source Files\public\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputAction.h">
+      <Filter>Source Files\public\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Source Files\public\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Source Files\private</Filter>
     </ClCompile>
     <ClCompile Include="TimeManager.cpp">
       <Filter>Source Files\private\Manager</Filter>
@@ -66,11 +81,17 @@
     <ClCompile Include="Actor.cpp">
       <Filter>Source Files\private\Actor</Filter>
     </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Source Files\private\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\private</Filter>
+    </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Source Files\private</Filter>
     </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>Source Files\private\Component</Filter>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files\private\Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

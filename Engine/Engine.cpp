@@ -13,6 +13,7 @@ namespace JE {
 
 	void Engine::Tick(float DeltaTime)
 	{
+		GetInputManager()->UpdateInput();
 	}
 
 	void Engine::Render()

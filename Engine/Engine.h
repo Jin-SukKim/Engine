@@ -15,9 +15,10 @@ public:
 	virtual void Render();
 
 	TimeManager* GetTimeManager() { return &_timeManager; }
-
+	InputManager* GetInputManager() { return &_inputManager; }
 private:
 	TimeManager _timeManager;
+	InputManager _inputManager;
 };
 
 }
