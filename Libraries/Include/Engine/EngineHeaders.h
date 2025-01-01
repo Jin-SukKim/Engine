@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Enums.h"
+
 #include "TimeManager.h"
 #include "InputTypes.h"
 #include "InputAction.h"

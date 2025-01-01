@@ -184,18 +184,27 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
+    <ClInclude Include="Camera2DComponent.h" />
+    <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="EngineHeaders.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="Enums.h" />
     <ClInclude Include="InputAction.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="InputTypes.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="SpriteActor.h" />
     <ClInclude Include="TimeManager.h" />
+    <ClInclude Include="Transform2DComponent.h" />
+    <ClInclude Include="TransformComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Camera2DComponent.cpp" />
+    <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -206,7 +215,10 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SpriteActor.cpp" />
     <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="Transform2DComponent.cpp" />
+    <ClCompile Include="TransformComponent.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

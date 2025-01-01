@@ -10,6 +10,7 @@
 #include <memory>
 #include <string>
 #include <memory>
+#include <algorithm>
 
 #include "Math/MathHeaders.h"
 
