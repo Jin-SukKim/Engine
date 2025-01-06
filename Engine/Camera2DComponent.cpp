@@ -11,7 +11,7 @@ namespace JE {
 	void Camera2DComponent::Tick(const float& DeltaTime)
 	{
 		if (_attached) {
-			Transform2DComponent* tr = GetOwner()->GetComponent<Transform2DComponent>();
+			Transform2DComponent* tr = _attached->GetComponent<Transform2DComponent>();
 			if (tr) {
 				Vector2 ownerPos = tr->GetPos();
 				Vector2 cameraPos = _cameraTransform->GetPos();
@@ -29,6 +29,7 @@ namespace JE {
 				}
 			}
 		}
+
 	}
 
 	Matrix3x3 Camera2DComponent::GetViewMatrix() const

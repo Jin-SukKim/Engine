@@ -8,6 +8,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
+    // TODO: renderer 생성을 Application 안에서 하기 (추후 다른 window를 생성하기 위함), Engine은 창이 여러개라도 하나만 쓰면 되지 않을까
     ScreenPoint screenSize(800, 600);
     //Application app(screenSize);
     // 메인 윈도우

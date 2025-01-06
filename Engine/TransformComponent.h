@@ -12,7 +12,7 @@ namespace JE {
 		// Position
 		void SetPos(const Vector3& pos) { _pos = pos; }
 		void AddPos(const Vector3& deltaPos) { _pos += deltaPos; }
-		Vector3 GetPos() const { _pos; }
+		Vector3 GetPos() const { return _pos; }
 
 		// Rotation (회전하면 각 axis의 축도 회전됨) - 내부 시스템은 Quaternion을 사용해 회전
 		// 오일러 각을 사용하는 회전 (Yaw = y축 회전 (좌우), Roll = Z축 회전(회전), Pitch = X축 회전(위아래))

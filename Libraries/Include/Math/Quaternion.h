@@ -16,6 +16,8 @@ struct Quaternion
 	Quaternion(float x, float y, float z, float w) : X(x), Y(y), Z(z), W(w) {}
 	// 회전출 n과 회전할 각도로 회전 사원수 생성
 	Quaternion(const Vector3& axis, float angleDegree);
+	// 시선 방향 벡터 v와 up 벡터로 Quaternion 생성
+	Quaternion(const Vector3& v, const Vector3& up = Vector3::UnitY);
 	// 오일러 각(Rotator)으로부터 사원수 생성
 	Quaternion(const Rotator& rotator);
 	// 회전 변환행렬로부터 사원수 생성
@@ -50,6 +52,8 @@ struct Quaternion
 
 	// 오일러 각에서 사원수로 변환해 사원수 생성
 	void FromRotator(const Rotator& rotator);
+	// 시선 벡터 v와 up벡터를 사용해 사원수 생성
+	void FromVector(const Vector3& v, const Vector3& up = Vector3::UnitY);
 
 	// 사원수에서 오일러 각으로 변환
 	Rotator ToRotator() const;

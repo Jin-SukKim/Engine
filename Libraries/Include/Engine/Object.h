@@ -17,9 +17,9 @@ namespace JE {
 		Object(const std::wstring& name) : Super(name) {}
 		virtual ~Object() override {}
 
-		virtual void Init() override = 0;
-		virtual void Tick(const float& DeltaTime) override = 0;
-		virtual void Render() override = 0;
+		virtual void Init() override;
+		virtual void Tick(const float& DeltaTime) override;
+		virtual void Render() override;
 
 		template<typename T>
 		T* AddComponent();

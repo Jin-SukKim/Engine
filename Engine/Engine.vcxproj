@@ -96,7 +96,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\Libs\;$(SolutionDir)Libraries\Include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\Libs\;$(SolutionDir)Libraries\Include\;$(SolutionDir)Libraries\Include\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -120,7 +120,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\Libs\;$(SolutionDir)Libraries\Include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\Libs\;$(SolutionDir)Libraries\Include\;$(SolutionDir)Libraries\Include\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -144,7 +144,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\Libs\;$(SolutionDir)Libraries\Include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\Libs\;$(SolutionDir)Libraries\Include\;$(SolutionDir)Libraries\Include\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -168,7 +168,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\Libs\;$(SolutionDir)Libraries\Include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Libraries\Libs\;$(SolutionDir)Libraries\Include\;$(SolutionDir)Libraries\Include\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -184,6 +184,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
+    <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Camera2DComponent.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="Component.h" />
@@ -194,20 +195,31 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
     <ClInclude Include="InputAction.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="InputTypes.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Mesh2D.h" />
+    <ClInclude Include="Mesh2DComponent.h" />
+    <ClInclude Include="MeshComponent.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Resource.h" />
     <ClInclude Include="SpriteActor.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Transform2DComponent.h" />
     <ClInclude Include="TransformComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Camera2DComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Mesh2D.cpp" />
+    <ClCompile Include="Mesh2DComponent.cpp" />
+    <ClCompile Include="MeshComponent.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -215,7 +227,9 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Resource.cpp" />
     <ClCompile Include="SpriteActor.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Transform2DComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />

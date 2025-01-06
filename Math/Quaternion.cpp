@@ -16,6 +16,16 @@ namespace JE {
 		Z = sin * axis.Z;
 	}
 
+	Quaternion::Quaternion(const Vector3& v, const Vector3& up)
+	{
+		/*
+			시점 방향에 따라 외적을 사용해 회전된 로컬 축을 설정해 회전 행렬에 사용
+			보통 월드의 Up벡터인 y축을 사용하지만 물체가 뒤집어진 경우가 있을 수 있으니 up 벡터를 Parameter로 받음
+			물체가 뒤집어진 경우 up 벡터를 -Vector3::UnitY를 받아야 함
+		*/
+		FromVector(v, up);
+	}
+
 	Quaternion::Quaternion(const Rotator& rotator)
 	{
 		FromRotator(rotator);
@@ -207,6 +217,29 @@ namespace JE {
 		Y = sy * cp * cr - sp * sr * cy;
 		Z = sr * cp * cy - cr * sp * sy;
 	}
+
+	void Quaternion::FromVector(const Vector3& v, const Vector3& up)
+	{
+		// 로컬축 생성
+		Vector3 localX, localY, localZ;
+
+		// 단위 Z축 생성
+		localZ = v.GetNormalize();
+		// 시선 방향과 월드 Y축이 평행한 경우 (위에서 아래를 내려다보거나 아래에서 위를 수직으로 올려다보는 상황)
+		// Normalize했으므로 y값이 1.0에 가까우면 월드 y축과 평행한 것
+		if (std::abs(localZ.Y) >= (1.f - SMALL_NUMBER)) /// float 계산을 부정확하므로 오차범위 설정
+			// 특이 상황에서 로컬 X 좌표 값을 임의로 지정
+			localX = Vector3::UnitX;
+		else
+			localX = up.Cross(localZ).GetNormalize();
+
+		// 두 벡터가 직교하고 크기가 1이면 결과는 1을 보장
+		localY = localZ.Cross(localX).GetNormalize();
+
+		// 생성한 로컬축으로 사원수 생성
+		FromMatrix(Matrix3x3(localX, localY, localZ));
+	}
+
 	Rotator Quaternion::ToRotator() const
 	{
 		Rotator result;

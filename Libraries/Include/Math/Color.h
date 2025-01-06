@@ -4,7 +4,7 @@ namespace JE {
 
 struct Color
 {
-	Color() : R(0.f), G(0.f), B(0.f), A(0.f) {}
+	Color() : R(0.f), G(0.f), B(0.f), A(1.f) {}
 	Color(float R, float G, float B, float A) : R(R), G(G), B(B), A(A) {}
 	Color(const Color& color) : R(color.R), G(color.G), B(color.B), A(color.A) {}
 	Color(const Color32& color) {

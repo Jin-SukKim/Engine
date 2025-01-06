@@ -7,6 +7,7 @@ namespace JE {
 		Collider,
 		RigidBody,
 		Script,
+		Mesh,
 		Sprite,
 		Animator,
 		Camera,
@@ -28,8 +29,10 @@ namespace JE {
 	};
 
 	enum class ResourceType {
+		None,
 		Texture,
 		Sprite,
+		Mesh,
 		Animation,
 		AudioClip, // Sound
 		Prefab, // 데이터 저장
@@ -41,6 +44,7 @@ namespace JE {
 		Rectangle,
 		Sphere,
 		Box,
+		Mesh2D,
 		Mesh,
 		MaxColliderType
 	};

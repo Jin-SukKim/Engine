@@ -5,7 +5,7 @@ namespace JE {
 // Color [0, 255]
 struct Color32
 {
-	Color32() : R(0), G(0), B(0), A(0) {}
+	Color32() : R(0), G(0), B(0), A(255) {}
 	Color32(uint8 R, uint8 G, uint8 B, uint8 A = 255) : R(R), G(G), B(B), A(A) {}
 	Color32(uint32 color) : Color(color) {}
 
