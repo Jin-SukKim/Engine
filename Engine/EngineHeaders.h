@@ -5,6 +5,7 @@
 #include "Texture.h"
 #include "Mesh2D.h"
 #include "Mesh.h"
+#include "MeshData.h"
 
 #include "TimeManager.h"
 #include "InputTypes.h"

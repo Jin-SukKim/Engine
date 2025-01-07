@@ -7,6 +7,7 @@ struct Vertex2D {
 	Vertex2D() {}
 	Vertex2D(const Vector2& pos) : Pos(pos) {}
 	Vertex2D(const Vector2& pos, const Color & color) : Pos(pos), Color(color) {}
+	Vertex2D(const Vector2& pos, const Vector2& uv) : Pos(pos), UV(uv) {}
 	Vertex2D(const Vector2& pos, const Color& color, const Vector2& uv) : Pos(pos), Color(color), UV(uv) {};
 
 	Vector2 Pos; // ÁÂÇ¥
@@ -19,7 +20,8 @@ struct Vertex3D {
 	Vertex3D() {}
 	Vertex3D(const Vector4& pos) : Pos(pos) {}
 	Vertex3D(const Vector4& pos, const Color & color) : Pos(pos), Color(color) {}
-	Vertex3D(const Vector4& pos, const Color& color, const Vector4& uv) : Pos(pos), Color(color), UV(uv) {};
+	Vertex3D(const Vector4& pos, const Vector2& uv) : Pos(pos), UV(uv) {}
+	Vertex3D(const Vector4& pos, const Color& color, const Vector2& uv) : Pos(pos), Color(color), UV(uv) {};
 
 	// »ï°¢Çü Å¬¸®ÇÎ¿¡¼­ »ç¿ë
 	Vertex3D operator+(const Vertex3D& vertex) const {
@@ -41,6 +43,6 @@ struct Vertex3D {
 
 	Vector4 Pos; // ÁÂÇ¥
 	Color Color; // »ö
-	Vector4 UV;  // Texture ÁÂÇ¥°è
+	Vector2 UV;  // Texture ÁÂÇ¥°è
 };
 }

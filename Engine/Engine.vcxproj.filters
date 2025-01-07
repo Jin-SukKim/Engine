@@ -118,6 +118,9 @@
     <ClInclude Include="MeshComponent.h">
       <Filter>Source Files\public\Component</Filter>
     </ClInclude>
+    <ClInclude Include="MeshData.h">
+      <Filter>Source Files\public\Resource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
