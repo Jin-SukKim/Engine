@@ -44,6 +44,7 @@ void CppRenderer::DrawLine(const Vector2& startPos, const Vector2& endPos, const
     BrensenhamDrawLine(clippedStart, clippedEnd, color);
 }
 
+
 void CppRenderer::DrawFullVerticalLine(const int x, const Color& color)
 {
     if (x < 0 || x >= _screenSize.X)
@@ -71,16 +72,6 @@ void CppRenderer::PushStatisticTexts(std::vector<std::wstring>&& texts)
 {
     // 삽입된 string이 몇 줄인지 알 수 없으므로 위에서 아래로 화면에 출력하기 위해 거꾸로 저장
     std::move(texts.begin(), texts.end(), std::back_inserter(_statisticTexts));
-}
-
-void CppRenderer::SetDepthBufferValue(const ScreenPoint& pos, float depth)
-{
-    Super::SetDepthBufferValue(pos, depth);
-}
-
-float CppRenderer::GetDepthBufferValue(const ScreenPoint& pos) const
-{
-    return Super::GetDepthBufferValue(pos);
 }
 
 /*

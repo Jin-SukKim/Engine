@@ -1,5 +1,7 @@
 #pragma once
 
+#define NOMINMAX // Windows.h의 min, max define 매크로 사용 안함
+
 #include <cmath>
 #include <algorithm>
 #include <array>

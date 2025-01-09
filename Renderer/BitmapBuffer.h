@@ -48,7 +48,7 @@ private:
 	HBITMAP _bitmap = 0, _memoryBitmap = 0; // 캔버스
 	
 	Color32* _screenBuffer = nullptr; // bitmap의 데이터 포인터 (bitmap은 32bit로 이루어진 BGRA 데이터 포맷 사용, 1차원 배열을 2차원 배열처럼 사용할 때처럼 사용)
-	std::vector<float> _depthBuffer; // 깊이 테스트를 위한 깊이 버퍼
+	std::vector<float> _depthBuffer; // 깊이 테스트를 위한 깊이 버퍼 (픽셀의 수)
 
 };
 

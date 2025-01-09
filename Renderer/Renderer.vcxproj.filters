@@ -14,14 +14,8 @@
     <Filter Include="Source Files\private\CPP">
       <UniqueIdentifier>{22f8d9c6-9272-4f1b-be3e-38b417495294}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\private\CPP\2D">
-      <UniqueIdentifier>{3c8883a1-87eb-461a-9722-b40e3c05a423}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\public\CPP">
       <UniqueIdentifier>{46dc4d6d-8cbd-42bc-8981-6461f9197d7e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\public\CPP\2D">
-      <UniqueIdentifier>{9b11cb14-c06e-43e5-b31b-cd7179118e26}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,9 +31,6 @@
     <ClInclude Include="RendererInterface.h">
       <Filter>Source Files\public</Filter>
     </ClInclude>
-    <ClInclude Include="CppRenderer2D.h">
-      <Filter>Source Files\public\CPP\2D</Filter>
-    </ClInclude>
     <ClInclude Include="CppRenderer.h">
       <Filter>Source Files\public\CPP</Filter>
     </ClInclude>
@@ -47,6 +38,15 @@
       <Filter>Source Files\public\CPP</Filter>
     </ClInclude>
     <ClInclude Include="CppShader.h">
+      <Filter>Source Files\public\CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CppRenderer3D.h">
+      <Filter>Source Files\public\CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CppRenderer2D.h">
+      <Filter>Source Files\public\CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="PerspectiveTest.h">
       <Filter>Source Files\public\CPP</Filter>
     </ClInclude>
   </ItemGroup>
@@ -57,10 +57,16 @@
     <ClCompile Include="BitmapBuffer.cpp">
       <Filter>Source Files\private</Filter>
     </ClCompile>
-    <ClCompile Include="CppRenderer2D.cpp">
-      <Filter>Source Files\private\CPP\2D</Filter>
-    </ClCompile>
     <ClCompile Include="CppRenderer.cpp">
+      <Filter>Source Files\private\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="CppRenderer2D.cpp">
+      <Filter>Source Files\private\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="CppRenderer3D.cpp">
+      <Filter>Source Files\private\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="PerspectiveTest.cpp">
       <Filter>Source Files\private\CPP</Filter>
     </ClCompile>
   </ItemGroup>

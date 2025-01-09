@@ -18,7 +18,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // Engine °´Ã¼ »ý¼º
     std::unique_ptr<Engine> engine = std::make_unique<Engine>();
-    std::unique_ptr<RendererInterface> renderer = std::make_unique<CppRenderer>(hwnd);
+    std::unique_ptr<IRenderer> renderer = std::make_unique<CppRenderer>(hwnd);
     Application app(std::move(engine), std::move(renderer));
     if (!app.Init(screenSize))
         return -1;

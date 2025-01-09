@@ -4,10 +4,10 @@ namespace JE {
 	namespace MeshData {
 		// Mesh를 구성하는 정점 배열과 인덱스 배열 생성
 		static const std::vector<Vertex2D> SquareVertex = {
-			Vertex2D(Vector2(-1.f, -1.f), Vector2(0.f, 1.f)), // 좌하단 정점
-			Vertex2D(Vector2(-1.f, 1.f), Vector2(0.f, 0.f)), // 좌상단 정점
-			Vertex2D(Vector2(1.f, 1.f), Vector2(1.f, 0.f)), // 우상단 정점
-			Vertex2D(Vector2(1.f, -1.f), Vector2(1.f, 1.f)) // 우하단 정점
+			Vertex2D(Vector2(-1.f, -1.f), Color::Black, Vector2(0.f, 1.f)), // 좌하단 정점
+			Vertex2D(Vector2(-1.f, 1.f), Color::Black, Vector2(0.f, 0.f)), // 좌상단 정점
+			Vertex2D(Vector2(1.f, 1.f), Color::Black, Vector2(1.f, 0.f)), // 우상단 정점
+			Vertex2D(Vector2(1.f, -1.f), Color::Black, Vector2(1.f, 1.f)) // 우하단 정점
 		};
 
 		static const std::vector<uint32> SquareIndices = {

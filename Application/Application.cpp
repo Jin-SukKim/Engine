@@ -49,7 +49,7 @@ namespace JE {
 
 	void Application::DrawGizmo()
 	{
-		RendererInterface& r = *GetRenderer();
+		IRenderer& r = *GetRenderer();
 		const Engine& g = *GetEngine();
 
 		Color gridColor(0.8f, 0.8f, 0.8f, 0.3f);

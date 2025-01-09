@@ -186,22 +186,26 @@ attrib +r /s "..\Libraries\Include\Renderer\*.h"</Command>
     <ClInclude Include="BitmapBuffer.h" />
     <ClInclude Include="CppRenderer.h" />
     <ClInclude Include="CppRenderer2D.h" />
+    <ClInclude Include="CppRenderer3D.h" />
     <ClInclude Include="CppShader.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="RendererHeaders.h" />
     <ClInclude Include="RendererInterface.h" />
+    <ClInclude Include="PerspectiveTest.h" />
     <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BitmapBuffer.cpp" />
     <ClCompile Include="CppRenderer.cpp" />
     <ClCompile Include="CppRenderer2D.cpp" />
+    <ClCompile Include="CppRenderer3D.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="PerspectiveTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
