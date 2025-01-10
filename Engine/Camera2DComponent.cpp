@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Camera2DComponent.h"
 #include "SpriteActor.h"
-#include "Transform2DComponent.h"
 
 namespace JE {
 	Camera2DComponent::Camera2DComponent(const std::wstring& name) : Super(name, ComponentType::Camera) {

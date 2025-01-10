@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CppRenderer3D.h"
 #include "PerspectiveTest.h"
+#include "Engine/CameraComponent.h"
 
 namespace JE {
     void CppRenderer3D::SetDepthBufferValue(const ScreenPoint& pos, float depth)
@@ -19,7 +20,10 @@ namespace JE {
         const std::vector<uint32>& indices = mesh->GetIndices();
 
         // 정점 변환
-        VertexShader3D(vertices, mat); // mesh의 정점에 finalMatrix 적용
+        if (_cam)
+            VertexShader3D(vertices, mat * _cam->GetViewPerspectiveMatrix()); // mesh의 정점에 finalMatrix 적용
+        else
+            VertexShader3D(vertices, mat); // mesh의 정점에 finalMatrix 적용
 
         // 삼각형 클리핑
         std::vector<PerspectiveTest> testPlanes = {
@@ -48,6 +52,22 @@ namespace JE {
                 drawTriangle(sub, texture, viewDir);
             }
         }
+    }
+
+    bool CppRenderer3D::FrustumCulling(const Matrix4x4& mat, const Vector3& pos)
+    {
+        if (_cam == nullptr)
+            return false;
+
+        // 로컬 공간 데이터로 절두체 컬링
+        _cam->CreateFrustum(mat);
+
+        // 절두체 컬링을 위한 절두체
+        Frustum frustum = _cam->GetFrustum();
+        // 절두체 바깥에 있다면 그리지 않고 건너뛰기
+        if (frustum.CheckBound(pos) == BoundCheckResult::Outside)
+            return true;
+        return false;
     }
 
     void CppRenderer3D::drawTriangle(std::vector<Vertex3D>& triangle, const Texture* texture, const Vector3& viewDir)

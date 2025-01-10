@@ -4,6 +4,8 @@ namespace JE {
 	class Mesh2D;
 	class Mesh;
 	class Texture;
+	class Camera2DComponent;
+	class CameraComponent;
 
 enum class DrawMode {
 	Normal = 0,
@@ -49,6 +51,7 @@ class IRenderer2D
 public:
 	virtual ~IRenderer2D() = default;
 	virtual void DrawMesh(const Mesh2D* mesh, const Matrix3x3& mat, const Texture* texture) = 0;
+	virtual void SetMainCamera(Camera2DComponent* cam) = 0;
 };
 
 // 3D Àü¿ë Interface
@@ -69,5 +72,7 @@ public:
 	virtual void DrawMesh(const Mesh* mesh, const Matrix4x4& mat, const Texture* texture, const Vector3& viewDir = Vector3::UnitZ) = 0;
 
 	virtual void SetViewPlane(float nearZ, float farZ) = 0;
+	virtual bool FrustumCulling(const Matrix4x4& mat, const Vector3& pos) = 0;
+	virtual void SetMainCamera(CameraComponent* cam) = 0;
 };
 };

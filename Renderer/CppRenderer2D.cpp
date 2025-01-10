@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "CppRenderer2D.h"
+#include "Engine/Camera2DComponent.h"
 
 namespace JE {
 	void CppRenderer2D::DrawMesh(const Mesh2D* mesh, const Matrix3x3& mat, const Texture* texture)
@@ -8,7 +9,11 @@ namespace JE {
 		const std::vector<uint32>& indices = mesh->GetIndices();
 
 		// 정점 변환
-		VertexShader2D(vertices, mat); // mesh의 정점에 finalMatrix 적용
+		if (_cam)
+			VertexShader2D(vertices, mat * _cam->GetViewMatrix()); // mesh의 정점에 finalMatrix 적용
+		else
+			VertexShader2D(vertices, mat); // mesh의 정점에 finalMatrix 적용
+			
 
 		// 삼각형의 수만큼 반복
 		for (uint32 ti = 0; ti < indices.size(); ti += 3) {

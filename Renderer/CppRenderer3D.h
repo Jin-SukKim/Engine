@@ -2,7 +2,8 @@
 #include "CppRenderer.h"
 
 namespace JE {
-    class CppRenderer3D : public CppRenderer, IRenderer3D
+	class CameraComponent;
+	class CppRenderer3D : public CppRenderer, IRenderer3D
     {
         using Super = CppRenderer;
     public:
@@ -24,6 +25,8 @@ namespace JE {
 		// farPlane과 nearPlane의 거리 설정
 		void SetViewPlane(float nearZ, float farZ) override { _nearZ = nearZ; _farZ = farZ; }
 
+		bool FrustumCulling(const Matrix4x4& mat, const Vector3& pos) override;
+		void SetMainCamera(CameraComponent* cam) { _cam = cam; }
     private:
 		// 3D Mesh의 삼각형 그리기
         void drawTriangle(std::vector<Vertex3D>& triangle, const Texture* texture, const Vector3& viewDir);
@@ -37,6 +40,7 @@ namespace JE {
 	private:
 		bool _useBackfaceCulling = true;
 		float _nearZ = 10.f, _farZ = 1000.f;
+		CameraComponent* _cam = nullptr;
     };
 
 }

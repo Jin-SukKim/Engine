@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "CameraComponent.h"
-#include "TransformComponent.h"
 #include "Actor.h"
 
 namespace JE {

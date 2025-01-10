@@ -1,9 +1,9 @@
 #pragma once
 #include "Component.h"
+#include "Transform2DComponent.h"
 
 namespace JE {
 	class SpriteActor;
-	class Transform2DComponent;
 
 	class Camera2DComponent : public Component
 	{
@@ -16,7 +16,7 @@ namespace JE {
 
 		// 카메라 viewport 크기
 		void SetViewportSize(const ScreenPoint& size) { _viewportSize = size; }
-		const ScreenPoint& GetVeiwportSize() const { return _viewportSize; }
+		const ScreenPoint& GetViewportSize() const { return _viewportSize; }
 		
 		// 뷰 행렬
 		Matrix3x3 GetViewMatrix() const;

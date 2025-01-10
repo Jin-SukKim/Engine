@@ -1,8 +1,8 @@
 #pragma once
 #include "Component.h"
+#include "TransformComponent.h"
 
 namespace JE {
-	class TransformComponent;
 	class Actor;
 
 	class CameraComponent : public Component
