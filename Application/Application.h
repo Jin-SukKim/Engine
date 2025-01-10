@@ -1,7 +1,9 @@
 #pragma once
 
 namespace JE {
-	
+	class SpriteActor;
+	class Mesh2DComponent;
+	class Camera2DComponent;
 class Application
 {
 public:
@@ -22,6 +24,11 @@ protected:
 	std::unique_ptr<Engine> _engine;
 	std::unique_ptr<IRenderer> _renderer;
 	Color _bgColor = Color::White;
+
+	// test
+	SpriteActor* actor;
+	Mesh2DComponent* mesh;
+	Camera2DComponent* cam;
 };
 
 }

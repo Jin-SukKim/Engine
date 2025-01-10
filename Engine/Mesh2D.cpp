@@ -7,5 +7,11 @@ namespace JE {
         // TODO: Mesh Load
         return true;
     }
+    bool Mesh2D::Load(const std::vector<Vertex2D>& vertices, const std::vector<uint32>& indices)
+    {
+        _vertices = vertices;
+        _indices = indices;
+        return true;
+    }
 }
 

@@ -11,6 +11,8 @@ namespace JE {
 		template<typename T>
 		static T* Load(const std::wstring& key, const std::wstring& path);
 
+		template<typename T>
+		static T* Load(const std::wstring& key, const std::vector<Vertex2D>& vertices, const std::vector<uint32>& indices);
 	private:
 		// TODO: wstring이 아닌 hash_key로 저장하면 메모리 사용량을 줄일 수 있지 않을까?
 		static std::map<std::wstring, std::unique_ptr<Resource>> _resources;
@@ -36,6 +38,23 @@ namespace JE {
 
 		std::unique_ptr<T> newResource = std::make_unique<T>(key);
 		if (!newResource->Load(path)) {
+			assert(false);
+			return nullptr;
+		}
+
+		_resources[key] = std::move(newResource);
+		return AssetManager::Find<T>(key);
+	}
+
+	template<typename T>
+	inline T* AssetManager::Load(const std::wstring& key, const std::vector<Vertex2D>& vertices, const std::vector<uint32>& indices)
+	{
+		T* resource = AssetManager::Find<T>(key);
+		if (resource)
+			return resource;
+
+		std::unique_ptr<T> newResource = std::make_unique<T>(key);
+		if (!newResource->Load(vertices, indices)) {
 			assert(false);
 			return nullptr;
 		}

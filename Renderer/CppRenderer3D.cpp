@@ -13,10 +13,10 @@ namespace JE {
         return Super::GetDepthBufferValue(pos);
     }
 
-    void CppRenderer3D::DrawMesh(const Mesh& mesh, const Matrix4x4& mat, const Texture* texture, const Vector3& viewDir)
+    void CppRenderer3D::DrawMesh(const Mesh* mesh, const Matrix4x4& mat, const Texture* texture, const Vector3& viewDir)
     {
-        std::vector<Vertex3D> vertices = mesh.GetVertices();
-        const std::vector<uint32>& indices = mesh.GetIndices();
+        std::vector<Vertex3D> vertices = mesh->GetVertices();
+        const std::vector<uint32>& indices = mesh->GetIndices();
 
         // 정점 변환
         VertexShader3D(vertices, mat); // mesh의 정점에 finalMatrix 적용

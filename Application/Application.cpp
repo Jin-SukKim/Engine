@@ -1,6 +1,11 @@
 #include "pch.h"
 #include "Application.h"
 
+#include "Engine/SpriteActor.h"
+#include "Engine/Mesh2DComponent.h"
+#include "Engine/Camera2DComponent.h"
+#include "Engine/AssetManager.h"
+#include "Engine/Transform2DComponent.h"
 
 namespace JE {
 
@@ -11,6 +16,18 @@ namespace JE {
 
 		if (!GetEngine()->Init())
 			return false;
+		
+		AssetManager::Load<Mesh2D>(L"SquareMesh", MeshData::SquareVertex, MeshData::SquareIndices);
+
+		actor = new SpriteActor(L"Player");
+		actor->Init();
+		Transform2DComponent* tr = actor->GetComponent<Transform2DComponent>();
+		tr->SetScale(30.f);
+		mesh = actor->AddComponent<Mesh2DComponent>(L"PlayerMesh");
+		mesh->SetMesh(L"SquareMesh");
+		cam = actor->AddComponent<Camera2DComponent>(L"PlayerCamera");
+		cam->AttachCamera(actor);
+
 		return true;
 	}
 
@@ -31,13 +48,24 @@ namespace JE {
 
 	void Application::Render()
 	{
-		GetRenderer()->Clear(_bgColor);
+		IRenderer* r = GetRenderer();
+		r->Clear(_bgColor);
 
 		// BackBuffer에 그리기
 		//GetEngine()->Render();
 		DrawGizmo();
 
-		GetRenderer()->Render(); // SwapBuffer
+		r->PushStatisticText(std::format(L"{:.9f} fps", GetTimer()->GetDeltaTime()));
+
+		// Test
+		const Transform2DComponent* tr = actor->GetComponent<Transform2DComponent>();
+		Matrix3x3 finalMat = tr->GetTransformMatrix() * cam->GetViewMatrix();
+
+
+		IRenderer2D* r2 = dynamic_cast<IRenderer2D*>(GetRenderer());
+		r2->DrawMesh(mesh->GetMesh(), finalMat, nullptr);
+
+		r->Render(); // SwapBuffer
 	}
 
 	TimeManager* Application::GetTimer()

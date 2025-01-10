@@ -10,6 +10,7 @@ namespace JE {
 		virtual ~Mesh2D() override {}
 
 		bool Load(const std::wstring& path) override;
+		bool Load(const std::vector<Vertex2D>& vertices, const std::vector<uint32>& indices);
 
 		void SetVertices(const std::vector<Vertex2D>& vertices) { _vertices = vertices; }
 		std::vector<Vertex2D>& GetVertices() { return _vertices; }

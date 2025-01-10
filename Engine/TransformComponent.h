@@ -30,6 +30,7 @@ namespace JE {
 		Quaternion GetRotation() const { return _rotation; }
 
 		// Scale
+		void SetScale(const float& scale) { _scale = { scale, scale, scale }; }
 		void SetScale(const Vector3& scale) { _scale = scale;	}
 		void AddScale(const Vector3& deltaScale) { _scale += deltaScale; }
 		Vector3 GetScale() const { return _scale; }

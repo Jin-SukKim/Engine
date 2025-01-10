@@ -1,5 +1,13 @@
 #pragma once
 
+#include <Windows.h>
+#include <memory>
+#include <string>
+#include <memory>
+#include <algorithm>
+#include <map>
+#include <filesystem>
+
 #include "Enums.h"
 
 #include "Texture.h"
@@ -13,3 +21,5 @@
 #include "InputManager.h"
 
 #include "Engine.h"
+
+namespace fs = std::filesystem;

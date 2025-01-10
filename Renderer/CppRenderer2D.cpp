@@ -2,10 +2,10 @@
 #include "CppRenderer2D.h"
 
 namespace JE {
-	void CppRenderer2D::DrawMesh(const Mesh2D& mesh, const Matrix3x3& mat, const Texture* texture)
+	void CppRenderer2D::DrawMesh(const Mesh2D* mesh, const Matrix3x3& mat, const Texture* texture)
 	{
-		std::vector<Vertex2D> vertices = mesh.GetVertices();
-		const std::vector<uint32>& indices = mesh.GetIndices();
+		std::vector<Vertex2D> vertices = mesh->GetVertices();
+		const std::vector<uint32>& indices = mesh->GetIndices();
 
 		// 정점 변환
 		VertexShader2D(vertices, mat); // mesh의 정점에 finalMatrix 적용

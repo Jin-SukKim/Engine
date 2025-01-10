@@ -20,6 +20,7 @@ namespace JE {
 		float GetRotation() const { return _rotation; }
 
 		// Scale
+		void SetScale(const float& scale) { _scale = { scale, scale }; }
 		void SetScale(const Vector2& scale) { _scale = scale; }
 		void ChangeScale(const Vector2& scale) { _scale *= scale; }
 		void ChangeScale(const float& scale) { _scale *= scale; }

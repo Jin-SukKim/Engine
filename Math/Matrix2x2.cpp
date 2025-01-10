@@ -3,7 +3,7 @@
 
 namespace JE {
 
-const Matrix2x2 Matrix2x2::Identity = { Vector2(1.f, 0.f), Vector2(0.f, 1.f) };
+const Matrix2x2 Matrix2x2::Identity = { Vector2::UnitX, Vector2::UnitY };
 
 const Vector2& Matrix2x2::operator[](uint8 index) const
 {

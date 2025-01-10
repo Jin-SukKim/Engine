@@ -35,9 +35,6 @@
     <Filter Include="Source Files\public\Common">
       <UniqueIdentifier>{dfb0819c-f86b-460d-8a06-fd9a4f7d8b63}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\private\Common">
-      <UniqueIdentifier>{6c039635-c2ea-4c05-a9bc-3414dfdc4307}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\public\Resource">
       <UniqueIdentifier>{684c4343-7fe8-4ded-867b-509b208ad0b7}</UniqueIdentifier>
     </Filter>

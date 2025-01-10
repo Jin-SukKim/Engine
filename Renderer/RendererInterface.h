@@ -48,7 +48,7 @@ class IRenderer2D
 {
 public:
 	virtual ~IRenderer2D() = default;
-	virtual void DrawMesh(const Mesh2D& mesh, const Matrix3x3& mat, const Texture* texture) = 0;
+	virtual void DrawMesh(const Mesh2D* mesh, const Matrix3x3& mat, const Texture* texture) = 0;
 };
 
 // 3D 전용 Interface
@@ -66,7 +66,7 @@ public:
 	virtual void SetDepthBufferValue(const ScreenPoint& pos, float depth) = 0;
 
 	// 3D Mesh 그리기
-	virtual void DrawMesh(const Mesh& mesh, const Matrix4x4& mat, const Texture* texture, const Vector3& viewDir = Vector3::UnitZ) = 0;
+	virtual void DrawMesh(const Mesh* mesh, const Matrix4x4& mat, const Texture* texture, const Vector3& viewDir = Vector3::UnitZ) = 0;
 
 	virtual void SetViewPlane(float nearZ, float farZ) = 0;
 };

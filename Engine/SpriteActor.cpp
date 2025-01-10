@@ -5,20 +5,24 @@
 namespace JE {
 	SpriteActor::SpriteActor(const std::wstring& name) : Super(name)
 	{
-		// 葛电 2D Actor俊 Transform2DComponent 积己
-		initTransform();
+
 	}
 
 	void SpriteActor::Init()
 	{
+		Super::Init();
+		// 葛电 2D Actor俊 Transform2DComponent 积己
+		initTransform();
 	}
 
 	void SpriteActor::Tick(const float& DeltaTime)
 	{
+		Super::Tick(DeltaTime);
 	}
 
 	void SpriteActor::Render()
 	{
+		Super::Render();
 	}
 
 	void SpriteActor::initTransform()
