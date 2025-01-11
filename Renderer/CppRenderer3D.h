@@ -20,7 +20,7 @@ namespace JE {
 		void SetDepthBufferValue(const ScreenPoint& pos, float depth) override;
 
 		// 3D Mesh 그리기
-		void DrawMesh(const Mesh* mesh, const Matrix4x4& mat, const Texture* texture, const Vector3& viewDir = Vector3::UnitZ) override;
+		void DrawMesh(const Mesh* mesh, const TransformComponent* tr, const Texture* texture, const Vector3& viewDir = Vector3::UnitZ) override;
 
 		// farPlane과 nearPlane의 거리 설정
 		void SetViewPlane(float nearZ, float farZ) override { _nearZ = nearZ; _farZ = farZ; }

@@ -6,6 +6,8 @@ namespace JE {
 	class Texture;
 	class Camera2DComponent;
 	class CameraComponent;
+	class Transform2DComponent;
+	class TransformComponent;
 
 enum class DrawMode {
 	Normal = 0,
@@ -50,7 +52,7 @@ class IRenderer2D
 {
 public:
 	virtual ~IRenderer2D() = default;
-	virtual void DrawMesh(const Mesh2D* mesh, const Matrix3x3& mat, const Texture* texture) = 0;
+	virtual void DrawMesh(const Mesh2D* mesh, const Transform2DComponent* tr, const Texture* texture) = 0;
 	virtual void SetViewCamera(Camera2DComponent* cam) = 0;
 };
 
@@ -69,7 +71,7 @@ public:
 	virtual void SetDepthBufferValue(const ScreenPoint& pos, float depth) = 0;
 
 	// 3D Mesh ±×¸®±â
-	virtual void DrawMesh(const Mesh* mesh, const Matrix4x4& mat, const Texture* texture, const Vector3& viewDir = Vector3::UnitZ) = 0;
+	virtual void DrawMesh(const Mesh* mesh, const TransformComponent* tr, const Texture* texture, const Vector3& viewDir = Vector3::UnitZ) = 0;
 
 	virtual void SetViewPlane(float nearZ, float farZ) = 0;
 	virtual bool FrustumCulling(const Matrix4x4& mat, const Vector3& pos) = 0;

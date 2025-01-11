@@ -24,8 +24,7 @@ namespace JE {
 		if (!tr)
 			return;
 
-		const Matrix3x3& mat = tr->GetTransformMatrix();
-		r2d->DrawMesh(_mesh, mat, _texture);
+		r2d->DrawMesh(_mesh, tr, _texture);
 
 	}
 	

@@ -11,7 +11,7 @@ public:
 	~CppRenderer2D() override {}
 
 	// 2D Mesh ±×¸®±â
-	void DrawMesh(const Mesh2D* mesh, const Matrix3x3& mat, const Texture* texture) override;
+	void DrawMesh(const Mesh2D* mesh, const Transform2DComponent* tr, const Texture* texture) override;
 
 	void SetViewCamera(Camera2DComponent* cam) { _cam = cam; }
 private:

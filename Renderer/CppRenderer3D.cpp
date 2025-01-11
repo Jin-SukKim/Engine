@@ -14,13 +14,18 @@ namespace JE {
         return Super::GetDepthBufferValue(pos);
     }
 
-    void CppRenderer3D::DrawMesh(const Mesh* mesh, const Matrix4x4& mat, const Texture* texture, const Vector3& viewDir)
+    void CppRenderer3D::DrawMesh(const Mesh* mesh, const TransformComponent* tr, const Texture* texture, const Vector3& viewDir)
     {
+        const Matrix4x4& mat = tr->GetTransformMatrix();
+        // 절두체 컬링
+        if (FrustumCulling(mat, tr->GetPos()))
+            return;
+        
         std::vector<Vertex3D> vertices = mesh->GetVertices();
         const std::vector<uint32>& indices = mesh->GetIndices();
 
         // 정점 변환
-        if (_cam)
+        if (_cam) 
             VertexShader3D(vertices, mat * _cam->GetViewPerspectiveMatrix()); // mesh의 정점에 finalMatrix 적용
         else
             VertexShader3D(vertices, mat); // mesh의 정점에 finalMatrix 적용

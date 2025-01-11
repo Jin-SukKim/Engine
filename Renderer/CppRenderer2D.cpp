@@ -1,18 +1,19 @@
 #include "pch.h"
 #include "CppRenderer2D.h"
 #include "Engine/Camera2DComponent.h"
+#include "Engine/Transform2DComponent.h"
 
 namespace JE {
-	void CppRenderer2D::DrawMesh(const Mesh2D* mesh, const Matrix3x3& mat, const Texture* texture)
+	void CppRenderer2D::DrawMesh(const Mesh2D* mesh, const Transform2DComponent* tr, const Texture* texture)
 	{
 		std::vector<Vertex2D> vertices = mesh->GetVertices();
 		const std::vector<uint32>& indices = mesh->GetIndices();
 
 		// 정점 변환
-		if (_cam)
-			VertexShader2D(vertices, mat * _cam->GetViewMatrix()); // mesh의 정점에 finalMatrix 적용
+		if (_cam) 
+			VertexShader2D(vertices, tr->GetTransformMatrix() * _cam->GetViewMatrix()); // mesh의 정점에 finalMatrix 적용
 		else
-			VertexShader2D(vertices, mat); // mesh의 정점에 finalMatrix 적용
+			VertexShader2D(vertices, tr->GetTransformMatrix()); // mesh의 정점에 finalMatrix 적용
 			
 
 		// 삼각형의 수만큼 반복

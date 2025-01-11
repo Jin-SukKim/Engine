@@ -24,11 +24,7 @@ namespace JE {
 		if (tr == nullptr)
 			return;
 
-		const Matrix4x4& mat = tr->GetTransformMatrix();
-		if (r3d->FrustumCulling(mat, tr->GetPos()))
-			return;
-
-		r3d->DrawMesh(_mesh, mat, _texture);
+		r3d->DrawMesh(_mesh, tr, _texture);
 	}
 
 	void MeshComponent::SetMesh(const std::wstring& name)
