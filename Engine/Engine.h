@@ -4,7 +4,7 @@
 namespace JE {
 
 class TimeManager; 
-
+class IRenderer;
 class Engine
 {
 public:
@@ -12,7 +12,7 @@ public:
 
 	virtual bool Init();
 	virtual void Tick(float DeltaTime);
-	virtual void Render();
+	virtual void Render(IRenderer* r);
 
 	TimeManager* GetTimeManager() { return &_timeManager; }
 	InputManager* GetInputManager() { return &_inputManager; }

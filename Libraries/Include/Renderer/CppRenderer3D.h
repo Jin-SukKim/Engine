@@ -26,7 +26,7 @@ namespace JE {
 		void SetViewPlane(float nearZ, float farZ) override { _nearZ = nearZ; _farZ = farZ; }
 
 		bool FrustumCulling(const Matrix4x4& mat, const Vector3& pos) override;
-		void SetMainCamera(CameraComponent* cam) { _cam = cam; }
+		void SetViewCamera(CameraComponent* cam) { _cam = cam; }
     private:
 		// 3D Mesh의 삼각형 그리기
         void drawTriangle(std::vector<Vertex3D>& triangle, const Texture* texture, const Vector3& viewDir);

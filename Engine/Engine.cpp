@@ -16,7 +16,7 @@ namespace JE {
 		GetInputManager()->UpdateInput();
 	}
 
-	void Engine::Render()
+	void Engine::Render(IRenderer* r)
 	{
 	}
 };

@@ -51,7 +51,7 @@ class IRenderer2D
 public:
 	virtual ~IRenderer2D() = default;
 	virtual void DrawMesh(const Mesh2D* mesh, const Matrix3x3& mat, const Texture* texture) = 0;
-	virtual void SetMainCamera(Camera2DComponent* cam) = 0;
+	virtual void SetViewCamera(Camera2DComponent* cam) = 0;
 };
 
 // 3D Àü¿ë Interface
@@ -73,6 +73,6 @@ public:
 
 	virtual void SetViewPlane(float nearZ, float farZ) = 0;
 	virtual bool FrustumCulling(const Matrix4x4& mat, const Vector3& pos) = 0;
-	virtual void SetMainCamera(CameraComponent* cam) = 0;
+	virtual void SetViewCamera(CameraComponent* cam) = 0;
 };
 };

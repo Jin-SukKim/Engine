@@ -1,19 +1,41 @@
 #include "pch.h"
 #include "MeshComponent.h"
 #include "AssetManager.h"
+#include "Actor.h"
+#include "TransformComponent.h"
+#include "Renderer/CppRenderer3D.h"
 
 namespace JE {
 	void MeshComponent::Tick(const float& DeltaTime)
 	{
-		// TODO: owner의 Transform Matrix를 가져와 Vertices 갱신
 	}
-	void MeshComponent::Render()
+
+	void MeshComponent::Render(IRenderer* r)
 	{
+		IRenderer3D* r3d = dynamic_cast<IRenderer3D*>(r);
+		if (r3d == nullptr)
+			return;
+
+		Actor* owner = dynamic_cast<Actor*>(this->GetOwner());
+		if (owner == nullptr)
+			return;
+
+		const TransformComponent* tr = owner->GetComponent<TransformComponent>();
+		if (tr == nullptr)
+			return;
+
+		const Matrix4x4& mat = tr->GetTransformMatrix();
+		if (r3d->FrustumCulling(mat, tr->GetPos()))
+			return;
+
+		r3d->DrawMesh(_mesh, mat, _texture);
 	}
+
 	void MeshComponent::SetMesh(const std::wstring& name)
 	{
 		_mesh = AssetManager::Find<Mesh>(name);
 	}
+
 	void MeshComponent::SetTexture(const std::wstring& name)
 	{
 		_texture = AssetManager::Find<Texture>(name);

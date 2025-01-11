@@ -20,12 +20,12 @@ namespace JE {
 				comp->Tick(DeltaTime);
 		}
 	}
-	void Object::Render()
+	void Object::Render(IRenderer* r)
 	{
 		for (std::unique_ptr<Component>& component : _components) {
 			Component* comp = component.get();
 			if (comp)
-				comp->Render();
+				comp->Render(r);
 		}
 	}
 	void Object::SetActive(bool on)

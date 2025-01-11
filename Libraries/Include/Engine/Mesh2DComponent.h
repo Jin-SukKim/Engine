@@ -14,7 +14,7 @@ namespace JE {
 		virtual ~Mesh2DComponent() override {}
 
 		virtual void Tick(const float& DeltaTime) override;
-		virtual void Render() override;
+		virtual void Render(IRenderer* r) override;
 
 		void SetMesh(const std::wstring& name);
 		Mesh2D* GetMesh() const { return _mesh; }

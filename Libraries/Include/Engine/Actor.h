@@ -11,7 +11,7 @@ namespace JE {
 		
 		virtual void Init();
 		virtual void Tick(const float& DeltaTime);
-		virtual void Render();
+		virtual void Render(IRenderer* r);
 
 	private:
 		// TransformComponent Ãß°¡

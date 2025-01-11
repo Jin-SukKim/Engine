@@ -57,13 +57,7 @@ namespace JE {
 
 		r->PushStatisticText(std::format(L"{:.9f} fps", GetTimer()->GetDeltaTime()));
 
-		// Test
-		const Transform2DComponent* tr = actor->GetComponent<Transform2DComponent>();
-		Matrix3x3 finalMat = tr->GetTransformMatrix() * cam->GetViewMatrix();
-
-
-		IRenderer2D* r2 = dynamic_cast<IRenderer2D*>(GetRenderer());
-		r2->DrawMesh(mesh->GetMesh(), finalMat, nullptr);
+		actor->Render(r);
 
 		r->Render(); // SwapBuffer
 	}

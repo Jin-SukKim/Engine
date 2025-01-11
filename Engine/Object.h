@@ -19,7 +19,7 @@ namespace JE {
 
 		virtual void Init() override;
 		virtual void Tick(const float& DeltaTime) override;
-		virtual void Render() override;
+		virtual void Render(IRenderer* r) override;
 
 		template<typename T>
 		T* AddComponent();

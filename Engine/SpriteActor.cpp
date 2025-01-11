@@ -20,9 +20,9 @@ namespace JE {
 		Super::Tick(DeltaTime);
 	}
 
-	void SpriteActor::Render()
+	void SpriteActor::Render(IRenderer* r)
 	{
-		Super::Render();
+		Super::Render(r);
 	}
 
 	void SpriteActor::initTransform()

@@ -11,7 +11,7 @@ namespace JE {
 
 		virtual void Init() override;
 		virtual void Tick(const float& DeltaTime) override;
-		virtual void Render() override;
+		virtual void Render(IRenderer* r) override;
 
 	private:
 		// Transform2DCompoennt Ãß°¡

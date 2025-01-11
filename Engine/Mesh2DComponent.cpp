@@ -1,15 +1,32 @@
 #include "pch.h"
 #include "Mesh2DComponent.h"
 #include "AssetManager.h"
+#include "SpriteActor.h"
+#include "Transform2DComponent.h"
+#include "Renderer/CppRenderer2D.h"
 
 namespace JE {
 	void Mesh2DComponent::Tick(const float& DeltaTime)
 	{
-		// TODO: owner의 Transform Matrix를 가져와 Vertices 갱신
 	}
 
-	void Mesh2DComponent::Render()
+	void Mesh2DComponent::Render(IRenderer* r)
 	{
+		IRenderer2D* r2d = dynamic_cast<IRenderer2D*>(r);
+		if (r2d == nullptr)
+			return;
+
+		SpriteActor* owner = dynamic_cast<SpriteActor*>(this->GetOwner());
+		if (!owner)
+			return;
+
+		const Transform2DComponent* tr = owner->GetComponent<Transform2DComponent>();
+		if (!tr)
+			return;
+
+		const Matrix3x3& mat = tr->GetTransformMatrix();
+		r2d->DrawMesh(_mesh, mat, _texture);
+
 	}
 	
 	void Mesh2DComponent::SetMesh(const std::wstring& name)

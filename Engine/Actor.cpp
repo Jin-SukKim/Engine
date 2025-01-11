@@ -19,9 +19,9 @@ namespace JE {
 		Super::Tick(DeltaTime);
 	}
 
-	void Actor::Render()
+	void Actor::Render(IRenderer* r)
 	{
-		Super::Render();
+		Super::Render(r);
 	}
 
 	void Actor::initTransform()

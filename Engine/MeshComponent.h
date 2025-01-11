@@ -14,7 +14,7 @@ namespace JE {
 		virtual ~MeshComponent() override {}
 
 		virtual void Tick(const float& DeltaTime) override;
-		virtual void Render() override;
+		virtual void Render(IRenderer* r) override;
 
 		void SetMesh(const std::wstring& name);
 		Mesh* GetMesh() const { return _mesh; }
