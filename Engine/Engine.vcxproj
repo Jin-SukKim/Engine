@@ -195,6 +195,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
     <ClInclude Include="InputAction.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="InputTypes.h" />
+    <ClInclude Include="Layer.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Mesh2D.h" />
     <ClInclude Include="Mesh2DComponent.h" />
@@ -203,6 +204,8 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
     <ClInclude Include="Object.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SpriteActor.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeManager.h" />
@@ -217,6 +220,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Layer.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Mesh2D.cpp" />
     <ClCompile Include="Mesh2DComponent.cpp" />
@@ -229,6 +233,8 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Resource.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SpriteActor.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeManager.cpp" />

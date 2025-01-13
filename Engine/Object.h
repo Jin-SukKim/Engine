@@ -31,7 +31,7 @@ namespace JE {
 
 		void SetActive(bool on);
 
-		State GetActive() const { return _state; }
+		State GetState() const { return _state; }
 		bool IsActive() const { return _state == State::Active; }
 		void Death() { _state = State::Dead; }
 		bool IsDead() const { return _state == State::Dead; }

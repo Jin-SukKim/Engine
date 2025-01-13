@@ -41,6 +41,12 @@
     <Filter Include="Source Files\private\Resource">
       <UniqueIdentifier>{73c93db2-bfbc-4069-b86d-cbcbdd384d2f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\public\Scene">
+      <UniqueIdentifier>{845353f6-a1db-4d6b-880e-3ce4628dc954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Scene">
+      <UniqueIdentifier>{7376683e-5e30-4716-b06f-55ee192e45c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -118,6 +124,15 @@
     <ClInclude Include="MeshData.h">
       <Filter>Source Files\public\Resource</Filter>
     </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>Source Files\public\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Source Files\public\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Source Files\public\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -176,6 +191,15 @@
     </ClCompile>
     <ClCompile Include="MeshComponent.cpp">
       <Filter>Source Files\private\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>Source Files\private\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\private\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\private\Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

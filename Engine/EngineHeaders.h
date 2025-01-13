@@ -14,11 +14,15 @@
 #include "Mesh2D.h"
 #include "Mesh.h"
 #include "MeshData.h"
+#include "Object.h"
 
 #include "TimeManager.h"
 #include "InputTypes.h"
 #include "InputAction.h"
 #include "InputManager.h"
+
+#include "Layer.h"
+#include "SceneManager.h"
 
 #include "Engine.h"
 
