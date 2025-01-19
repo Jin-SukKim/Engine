@@ -16,7 +16,7 @@ namespace JE {
 
     void CppRenderer3D::DrawMesh(const Mesh* mesh, const TransformComponent* tr, const Texture* texture, const Vector3& viewDir)
     {
-        const Matrix4x4& mat = tr->GetTransformMatrix();
+        Matrix4x4 mat = tr->GetTransformMatrix();
         // 절두체 컬링
         if (FrustumCulling(mat, tr->GetPos()))
             return;
@@ -25,10 +25,10 @@ namespace JE {
         const std::vector<uint32>& indices = mesh->GetIndices();
 
         // 정점 변환
-        if (_cam) 
-            VertexShader3D(vertices, mat * _cam->GetViewPerspectiveMatrix()); // mesh의 정점에 finalMatrix 적용
-        else
-            VertexShader3D(vertices, mat); // mesh의 정점에 finalMatrix 적용
+        if (_cam)
+            mat = mat * _cam->GetViewPerspectiveMatrix();
+
+        VertexShader3D(vertices, mat); // mesh의 정점에 finalMatrix 적용
 
         // 삼각형 클리핑
         std::vector<PerspectiveTest> testPlanes = {

@@ -10,10 +10,11 @@ namespace JE {
 		const std::vector<uint32>& indices = mesh->GetIndices();
 
 		// 정점 변환
-		if (_cam) 
-			VertexShader2D(vertices, tr->GetTransformMatrix() * _cam->GetViewMatrix()); // mesh의 정점에 finalMatrix 적용
-		else
-			VertexShader2D(vertices, tr->GetTransformMatrix()); // mesh의 정점에 finalMatrix 적용
+		Matrix3x3 finalMat = tr->GetTransformMatrix();
+		if (_cam)
+			finalMat = finalMat * _cam->GetViewMatrix();
+
+		VertexShader2D(vertices, finalMat); // mesh의 정점에 finalMatrix 적용
 			
 
 		// 삼각형의 수만큼 반복

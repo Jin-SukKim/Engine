@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <map>
 #include <filesystem>
+#include <bitset>
 
 #include "Enums.h"
 
@@ -23,6 +24,8 @@
 
 #include "Layer.h"
 #include "SceneManager.h"
+
+#include "CollisionManager.h"
 
 #include "Engine.h"
 

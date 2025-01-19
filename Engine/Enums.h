@@ -20,10 +20,12 @@ namespace JE {
 	enum class LayerType {
 		None,
 		Background,
+		Floor,
 		Tile,
 		Actor,
 		Player,
 		Enemy,
+		Particle,
 		UI,
 		MaxLayerType
 	};

@@ -32,9 +32,15 @@ namespace JE {
 	Scene* SceneManager::LoadScene(const std::wstring& name)
 	{
 		// 현재 Scene에서 나가기
-		if (_activeScene)
-			_activeScene->OnExit();
+		if (_activeScene) {
+			// 충돌 초기화
+			if (_collisionManager) {
+				_collisionManager->Clear();
+				_collisionManager->Init();
+			}
 
+			_activeScene->OnExit();
+		}
 		// 다음 Scene 찾기
 		std::map<const std::wstring, std::unique_ptr<Scene>>::iterator iter = _scenes.find(name);
 		// 찾는 Scene이 없다면
@@ -44,17 +50,18 @@ namespace JE {
 		// 다음 Scene을 현재 Scene으로 사용
 		_activeScene = (iter->second).get();
 		_activeScene->OnEnter(); // Scene에 진입
-		
+
 		return _activeScene;
 	}
 
-	std::vector<Object*> SceneManager::GetObjects(LayerType layer)
+	const std::vector<std::unique_ptr<Object>>* SceneManager::GetObjects(LayerType layer)
 	{
-		std::vector<Object*> objects = {};
-		const std::vector<std::unique_ptr<Object>>& activeObjects = _activeScene->GetLayer(layer)->GetObjects();
+		/*const std::vector<std::unique_ptr<Object>>& activeObjects = _activeScene->GetLayer(layer)->GetObjects();
 		for (const std::unique_ptr<Object>& obj : activeObjects)
-			objects.emplace_back(obj.get());
+			objects.emplace_back(obj.get());*/
+		if (!_activeScene)
+			return nullptr;
 
-		return objects;
+		return &_activeScene->GetLayer(layer)->GetObjects();
 	}
 }

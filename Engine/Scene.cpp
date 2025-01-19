@@ -41,6 +41,11 @@ namespace JE {
 		}
 	}
 
+	void Scene::OnEnter()
+	{
+		Init();
+	}
+
 	void Scene::OnExit()
 	{
 		// TODO: 보통 Scene에서 나갈때 Collision 초기화

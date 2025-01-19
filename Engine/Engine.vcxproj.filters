@@ -47,6 +47,12 @@
     <Filter Include="Source Files\private\Scene">
       <UniqueIdentifier>{7376683e-5e30-4716-b06f-55ee192e45c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\public\Collision">
+      <UniqueIdentifier>{1e49e38f-0537-4a14-a2ae-51a4e6d5734f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Collision">
+      <UniqueIdentifier>{23b590bc-f0cd-4655-a6f7-47ee94c66ef0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -133,6 +139,13 @@
     <ClInclude Include="SceneManager.h">
       <Filter>Source Files\public\Manager</Filter>
     </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Source Files\public\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Source Files\public\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionDelegate.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -199,6 +212,12 @@
       <Filter>Source Files\private\Scene</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\private\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Source Files\private\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
       <Filter>Source Files\private\Manager</Filter>
     </ClCompile>
   </ItemGroup>

@@ -4,6 +4,7 @@
 namespace JE {
 	class IRenderer;
 	class Object;
+	class CollisionManager;
 
 	class SceneManager
 	{
@@ -18,12 +19,15 @@ namespace JE {
 		Scene* CreateScene(const std::wstring& name);
 		// 생성한 Scene 가져오기
 		Scene* LoadScene(const std::wstring& name);
-
+		// 활성화된 Scene 가져오기
+		Scene* GetActiveScene() const { return _activeScene; }
 		// Layer의 모든 Object 가져오기 (Collision에서 주로 사용)
-		std::vector<Object*> GetObjects(LayerType layer);
+		const std::vector<std::unique_ptr<Object>>* GetObjects(LayerType layer);
+		void SetCollisionManager(CollisionManager* manager) { _collisionManager = manager; }
 	private:
 		std::map<const std::wstring, std::unique_ptr<Scene>> _scenes;
 		Scene* _activeScene = nullptr; // 현재 화면에 그려질 Scene
+		CollisionManager* _collisionManager = nullptr;
 	};
 
 	template<typename T>

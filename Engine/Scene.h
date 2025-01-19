@@ -22,7 +22,7 @@ namespace JE {
 		virtual void Destroy();
 
 		// Scene을 Load (보통 Scene에 배치된 오브젝트나 환경 초기화 등에 사용)
-		virtual void OnEnter() { /* TODO: 보통 Scene에 초기화된 오브젝트 Enter때 초기화 */}
+		virtual void OnEnter();
 		// 현재 Scene에서 나가서 다른 Scene으로 들어갈떄
 		virtual void OnExit();
 

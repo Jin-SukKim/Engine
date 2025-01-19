@@ -1,6 +1,13 @@
 #pragma once
 
 namespace JE {
+	/*
+		TODO: 현재 frame이 갱신되는 UpdateInput이 실행되는 순간 Key가 입력되어야 인식을 할텐데,
+		입력키를 대기용 queue에 올려두고 UpdateInput()이 실행될 때 반영하면 키 씹힘 현상이 줄어들 것 같다.
+		그냥 가정일 뿐 실제로 시도해보진 않았음
+
+		입력을 대기용 queue에 올려두는 것을 고민해보기 (언제 어떻게 받아야 대기용 queue를 사용할 수 있을까?)
+	*/
 	class InputManager
 	{
 	public:

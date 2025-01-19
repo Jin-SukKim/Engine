@@ -6,6 +6,7 @@
 #include "Engine/Camera2DComponent.h"
 #include "Engine/AssetManager.h"
 #include "Engine/Transform2DComponent.h"
+#include "Renderer/RendererInterface.h"
 
 namespace JE {
 
@@ -28,6 +29,9 @@ namespace JE {
 		cam = actor->AddComponent<Camera2DComponent>(L"PlayerCamera");
 		cam->AttachCamera(actor);
 
+		IRenderer2D* i2 = dynamic_cast<IRenderer2D*>(GetRenderer());
+		if (i2)
+			i2->SetViewCamera(cam);
 		return true;
 	}
 
@@ -43,18 +47,21 @@ namespace JE {
 
 	void Application::Tick()
 	{
-		GetEngine()->Tick(GetTimer()->GetDeltaTime());
+		GetEngine()->Tick();
 	}
 
 	void Application::Render()
 	{
+
 		IRenderer* r = GetRenderer();
 		r->Clear(_bgColor);
+		GetEngine()->Render(r);
 
 		// BackBuffer에 그리기
 		//GetEngine()->Render();
 		DrawGizmo();
 
+		Transform2DComponent* tr = actor->GetComponent<Transform2DComponent>();
 		r->PushStatisticText(std::format(L"{:.9f} fps", GetTimer()->GetDeltaTime()));
 
 		actor->Render(r);
