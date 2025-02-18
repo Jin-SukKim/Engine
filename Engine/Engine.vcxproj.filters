@@ -145,7 +145,15 @@
     <ClInclude Include="CollisionManager.h">
       <Filter>Source Files\public\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionDelegate.h" />
+    <ClInclude Include="CollisionDelegate.h">
+      <Filter>Source Files\public\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleComponent.h">
+      <Filter>Source Files\public\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleComponent.h">
+      <Filter>Source Files\public\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -219,6 +227,12 @@
     </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
       <Filter>Source Files\private\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleComponent.cpp">
+      <Filter>Source Files\private\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleComponent.cpp">
+      <Filter>Source Files\private\Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
