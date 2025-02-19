@@ -7,6 +7,7 @@ struct Matrix3x3;
 struct Vector3
 {
 	Vector3() : X(0.f), Y(0.f), Z(0.f) {}
+	Vector3(float scalar) : X(scalar), Y(scalar), Z(scalar) {}
 	Vector3(float X, float Y, float Z) : X(X), Y(Y), Z(Z) {}
 	Vector3(int X, int Y, int Z) : X(static_cast<float>(X)), Y(static_cast<float>(Y)), Z(static_cast<float>(Z)) {}
 	Vector3(const Vector2& v, bool isPoint = true) : X(v.X), Y(v.Y), Z(isPoint ? 1.f : 0.f) {}

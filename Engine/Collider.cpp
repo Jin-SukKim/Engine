@@ -1,7 +1,10 @@
 #include "pch.h"
 #include "Collider.h"
-#include "RectangleComponent.h"
-#include "CircleComponent.h"
+#include "Math/Rectangle.h"
+#include "Math/Circle.h"
+#include "Math/Box.h"
+#include "Math/Sphere.h"
+
 
 namespace JE {
 	uint32 Collider::_collisionID = 0;
@@ -41,102 +44,68 @@ namespace JE {
 		return true;
 	}
 
-	bool Collider::CheckCollisionRectToRect(RectangleComponent* b1, RectangleComponent* b2)
+	bool Collider::CheckCollisionCircleToRect(const Circle& c1, const Rectangle& b1)
 	{
-		if (b1 == nullptr || b2 == nullptr)
-			return false;
-
-		RECT r1 = b1->GetRect();
-		RECT r2 = b2->GetRect();
-
-		RECT intersect = {}; // 교차점 (겹치는 위치)
-
-		bool check = ::IntersectRect(&intersect, &r1, &r2);
-
-		return check;
-	}
-	bool Collider::CheckCollisionCircleToRect(CircleComponent* c1, RectangleComponent* b1)
-	{
-		if (c1 == nullptr || b1 == nullptr)
-			return false;
-
-		// 사각형 정보
-		const RECT square = b1->GetRect();
-		
-		// 원 정보
-		const Vector2 circlePos = c1->GetPos();
-		const float radius = c1->GetRadius();
-
-		bool horizontal = square.left <= circlePos.X && circlePos.X <= square.right;
-		bool vertical = square.top <= circlePos.Y && circlePos.Y <= square.bottom;
-
 		// 원의 반지름만큼 사각형을 확장한 뒤, 원의 중심점이 확장한 사각형 안에 있다면 충돌
-		if (horizontal || vertical) {
-			// 원의 반지름만큼 사각형을 확장
-			RECT exRect = {
-				square.left - static_cast<LONG>(radius),
-				square.top - static_cast<LONG>(radius),
-				square.right + static_cast<LONG>(radius),
-				square.bottom + static_cast<LONG>(radius)
-			};
+		Rectangle exRect = {
+				b1.Min - c1.Radius,
+				b1.Max + c1.Radius
+		};
+		if (exRect.IsInside(c1.Center))
+			return true;
 
-			// 확장한 사각형 안에 원의 중심이 있는지 확인
-			if (exRect.left < circlePos.X && circlePos.X < exRect.right &&
-				exRect.top < circlePos.Y && circlePos.Y < exRect.bottom)
-				return true;
-		}
 		// 예외적으로 원래 사각형의 대각선 쪽으로 왔을땐 사각형 꼭지점들이 원 안에 있는지 확인 (대각선은 상하좌우보다 더 멀리 있을 수 있음)
-		else {
-			// 사각형 좌상단 꼭지점이 원 안에 있는지 확인
-			Vector2 point = { static_cast<float>(square.left), static_cast<float>(square.top) };
-			if (CheckPointInCircle(circlePos, radius, point))
-				return true;
-			// 사각형 좌하단 꼭지점이 원 안에 있는지 확인
-			point.Y = static_cast<float>(square.bottom);
-			if (CheckPointInCircle(circlePos, radius, point))
-				return true;
-			// 사각형 우하단 꼭지점이 원 안에 있는지 확인
-			point.X = static_cast<float>(square.right);
-			if (CheckPointInCircle(circlePos, radius, point))
-				return true;
-			// 사각형 우상단 꼭지점이 원 안에 있는지 확인
-			point.Y = static_cast<float>(square.top);
-			if (CheckPointInCircle(circlePos, radius, point))
-				return true;
-		}
+		
+		// 사각형 좌상단 꼭지점이 원 안에 있는지 확인
+		Vector2 point = { b1.Min.X, b1.Max.Y };
+		if (c1.IsInside(point))
+			return true;
+		// 사각형 좌하단 꼭지점이 원 안에 있는지 확인
+		if (c1.IsInside(b1.Min))
+			return true;
+		// 사각형 우하단 꼭지점이 원 안에 있는지 확인
+		point.X = b1.Max.X;
+		point.Y = b1.Min.Y;
+		if (c1.IsInside(point))
+			return true;
+		// 사각형 우상단 꼭지점이 원 안에 있는지 확인
+		if (c1.IsInside(b1.Max))
+			return true;
 
 		return false;
 	}
-	bool Collider::CheckCollisionCircleToCircle(CircleComponent* c1, CircleComponent* c2)
+	bool Collider::CheckCollisionSphereToBox(const Sphere& s1, const Box& b1)
 	{
-		if (c1 == nullptr || c2 == nullptr)
-			return false;
+		// 원 정보
+		const Vector3 circlePos = s1.Center;
+		const float radius = s1.Radius;
 
-		const Vector2 c1Pos = c1->GetPos();
-		const float c1Radius = c1->GetRadius();
+		// 원의 반지름만큼 사각형을 확장한 뒤, 원의 중심점이 확장한 사각형 안에 있다면 충돌
+		Box exRect = {
+				b1.Min - s1.Radius,
+				b1.Max + s1.Radius
+		};
+		if (exRect.IsInside(circlePos))
+			return true;
 
-		const Vector2 c2Pos = c2->GetPos();
-		const float c2Radius = c2->GetRadius();
-		
-		Vector2 dir = c2Pos - c1Pos;
-		const float dist = dir.SizeSquared();
+		// 예외적으로 원래 사각형의 대각선 쪽으로 왔을땐 사각형 꼭지점들이 원 안에 있는지 확인 (대각선은 상하좌우보다 더 멀리 있을 수 있음)
+		// 8개의 꼭지점을 순회
+		for (int i = 0; i < 8; ++i) // 숫자 8은 3 bit
+		{
+			Vector3 corner;
+			// 3비트를 사용하여 각 축의 Min/Max 선택 (bit 연산 사용)
+			// i & 1 : X축 (0: Min.X, 1: Max.X)
+			// i & 2 : Y축 (0: Min.Y, 1: Max.Y)
+			// i & 4 : Z축 (0: Min.Z, 1: Max.Z)
+			corner.X = (i & 1) ? b1.Max.X : b1.Min.X;
+			corner.Y = (i & 2) ? b1.Max.Y : b1.Min.Y;
+			corner.Z = (i & 4) ? b1.Max.Z : b1.Min.Z;
 
-		// 두 원의 중점들끼리의 거리
-		const float circleDist = c1Radius + c2Radius;
+			if (s1.IsInside(corner))
+				return true;
+		}
 
-		// 두 원의 각각의 중점끼리의 거리가 두 원의 반지름의 합보다 작다면 충돌
-		return dist <= circleDist * circleDist;
-	}
-	bool Collider::CheckPointInCircle(const Vector2& cPos, const float& radius, const Vector2& point)
-	{
-		// 원과 점 사이의 거리
-		Vector2 v = cPos - point;
-		float distSq = v.SizeSquared();
 
-		// 원의 반지름보다 점과 원의 거리가 작다면 점은 원 안에 존재
-		if (distSq > radius * radius)
-			return false;
-
-		return true;
+		return false;
 	}
 }

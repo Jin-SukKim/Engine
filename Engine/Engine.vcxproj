@@ -185,6 +185,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="BoxComponent.h" />
     <ClInclude Include="Camera2DComponent.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="CircleComponent.h" />
@@ -210,6 +211,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SphereComponent.h" />
     <ClInclude Include="SpriteActor.h" />
     <ClInclude Include="RectangleComponent.h" />
     <ClInclude Include="Texture.h" />
@@ -220,6 +222,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="BoxComponent.cpp" />
     <ClCompile Include="Camera2DComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="CircleComponent.cpp" />
@@ -243,6 +246,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
     <ClCompile Include="Resource.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SphereComponent.cpp" />
     <ClCompile Include="SpriteActor.cpp" />
     <ClCompile Include="RectangleComponent.cpp" />
     <ClCompile Include="Texture.cpp" />

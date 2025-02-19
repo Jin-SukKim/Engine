@@ -154,6 +154,12 @@
     <ClInclude Include="RectangleComponent.h">
       <Filter>Source Files\public\Component</Filter>
     </ClInclude>
+    <ClInclude Include="BoxComponent.h">
+      <Filter>Source Files\public\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereComponent.h">
+      <Filter>Source Files\public\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -232,6 +238,12 @@
       <Filter>Source Files\private\Component</Filter>
     </ClCompile>
     <ClCompile Include="RectangleComponent.cpp">
+      <Filter>Source Files\private\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxComponent.cpp">
+      <Filter>Source Files\private\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereComponent.cpp">
       <Filter>Source Files\private\Component</Filter>
     </ClCompile>
   </ItemGroup>

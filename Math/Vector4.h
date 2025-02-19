@@ -10,6 +10,7 @@ struct Vector4
 	Vector4(const Vector2& v, bool isPoint = true) : X(v.X), Y(v.Y), Z(0.f), W(isPoint ? 1.f : 0.f) {}
 	Vector4(const Vector3& v, bool isPoint = true) : X(v.X), Y(v.Y), Z(v.Z), W(isPoint ? 1.f : 0.f) {}
 	Vector4(const Vector3& v, float w) : X(v.X), Y(v.Y), Z(v.Z), W(w) {}
+	Vector4(float scalar) : X(scalar), Y(scalar), Z(scalar), W(scalar) {}
 	Vector4(float x, float y, float z, float w) : X(x), Y(y), Z(z), W(w) {}
 	Vector4(float x, float y, float z, bool isPoint = true) : X(x), Y(y), Z(z), W(isPoint ? 1.f : 0.f) {}
 

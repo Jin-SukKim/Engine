@@ -16,6 +16,8 @@ struct Sphere
 	// 두 구의 영역이 서로 겹치는지 판정
 	bool Intersect(const Sphere& sphere) const;
 	
+	void UpdateRadius(const std::vector<Vertex3D>& vertices);
+
 	Vector3 Center = Vector3::Zero;
 	float Radius = 0.f;
 };

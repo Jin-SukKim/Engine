@@ -24,8 +24,8 @@ namespace JE {
 		void SetScale(const Vector2& scale) { _scale = scale; }
 		void ChangeScale(const Vector2& scale) { _scale *= scale; }
 		void ChangeScale(const float& scale) { _scale *= scale; }
-		void AddScale(const float& deltaScale) { _scale += deltaScale; }
-		void AddScale(const Vector2& deltaScale) { _scale += deltaScale; }
+		void AddScale(const float& deltaScale) { _scale *= deltaScale; }
+		void AddScale(const Vector2& deltaScale) { _scale *= deltaScale; }
 		Vector2 GetScale() const { return _scale; }
 
 		// Local Axis

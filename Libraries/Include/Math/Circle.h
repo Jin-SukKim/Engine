@@ -16,6 +16,8 @@ struct Circle
 	// 다른 원과 겹치는지 확인
 	bool Intersect(const Circle& c) const;
 
+	void UpdateRadius(const std::vector<Vertex2D>& vertices);
+
 	Vector2 Center = Vector2::Zero;
 	float Radius = 0.f;
 };

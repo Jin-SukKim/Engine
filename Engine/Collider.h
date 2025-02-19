@@ -3,8 +3,10 @@
 #include "CollisionDelegate.h"
 
 namespace JE {
-	class RectangleComponent;
-	class CircleComponent;
+	struct Rectangle;
+	struct Circle;
+	struct Box;
+	struct Sphere;
 
 	class Collider : public Component
 	{
@@ -14,6 +16,7 @@ namespace JE {
 		virtual ~Collider() override {};
 
 		virtual void Init() override {}
+		virtual void Tick(const float& DeltaTime) override {};
 		virtual void Render(IRenderer* r) override;
 
 		// Set Collision Event
@@ -26,8 +29,8 @@ namespace JE {
 		uint32 GetID() const { return _collisionID; }
 		void SetOffset(const Vector3& offset) { _offset = offset; }
 		Vector3 GetOffset() const { return _offset; }
-		void SetSize(const Vector3& size) { _size = size; }
-		Vector3 GetSize() const { return _size; }
+		void SetScale(const Vector3& scale) { _scale = scale; }
+		Vector3 GetScale() const { return _scale; }
 		void SetColliderType(const ColliderType& type) { _type = type; }
 		ColliderType GetColliderType() const { return _type; }
 		void SetVisible(bool show) { _show = show; }
@@ -37,12 +40,8 @@ namespace JE {
 		bool GetCollisionEnable() const { return _enable; }
 
 	protected:
-		bool CheckCollisionRectToRect(RectangleComponent* b1, RectangleComponent* b2);
-		bool CheckCollisionCircleToRect(CircleComponent* c1, RectangleComponent* b1);
-		bool CheckCollisionCircleToCircle(CircleComponent* c1, CircleComponent* c2);
-
-		// 점이 원안에 있는지 확인
-		bool CheckPointInCircle(const Vector2& cPos, const float& radius, const Vector2& point);
+		bool CheckCollisionCircleToRect(const Circle& c1, const Rectangle& b1);
+		bool CheckCollisionSphereToBox(const Sphere& s1, const Box& b1);
 	public:
 		// Collider Delegate
 		// 함수를 정의해서 Delegate에 Bind해 사용
@@ -56,8 +55,8 @@ namespace JE {
 		uint32 _id;
 		// Collider Position from Actor
 		Vector3 _offset = Vector3::Zero; // 충돌체의 위치는 Mesh의 위치에서 시작
-		// Collider Size
-		Vector3 _size = Vector3::One;
+		// Collider scale
+		Vector3 _scale = Vector3::One;
 		ColliderType _type;
 		// Collision Enable
 		bool _enable = true;

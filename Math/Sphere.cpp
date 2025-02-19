@@ -5,6 +5,23 @@ namespace JE {
 	Sphere::Sphere(const std::vector<Vertex3D>& vertices)
 	{
 		// Mesh의 정점의 수
+		UpdateRadius(vertices);
+	}
+
+	bool Sphere::IsInside(const Vector3& v) const
+	{
+		return (Center - v).SizeSquared() <= (Radius * Radius);
+	}
+
+	bool Sphere::Intersect(const Sphere& sphere) const
+	{
+		// 두 구의 반지름의 합
+		float radiusSum = Radius + sphere.Radius;
+		// 두 구의 중점의 거리가 반지름의 합보다 작다면 겹쳐있는 것
+		return (Center - sphere.Center).SizeSquared() < (radiusSum * radiusSum);
+	}
+	void Sphere::UpdateRadius(const std::vector<Vertex3D>& vertices)
+	{
 		size_t count = vertices.size();
 		if (count == 0)
 			return;
@@ -22,18 +39,7 @@ namespace JE {
 			[&](const Vertex3D& l, const Vertex3D& r) {
 				return (Center - l.Pos.ToVector3()).SizeSquared() < (Center - r.Pos.ToVector3()).SizeSquared();
 			})).Pos.ToVector3();
-	}
 
-	bool Sphere::IsInside(const Vector3& v) const
-	{
-		return (Center - v).SizeSquared() <= (Radius * Radius);
-	}
-
-	bool Sphere::Intersect(const Sphere& sphere) const
-	{
-		// 두 구의 반지름의 합
-		float radiusSum = Radius + sphere.Radius;
-		// 두 구의 중점의 거리가 반지름의 합보다 작다면 겹쳐있는 것
-		return (Center - sphere.Center).SizeSquared() < (radiusSum * radiusSum);
+		Radius = (farthestPoint - Center).Size();
 	}
 }
