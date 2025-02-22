@@ -19,9 +19,13 @@ namespace JE {
 		// Texture가 반복적으로 연결된 것처럼 표현
 		Color GetWrapped(uint32 x, uint32 y) const;
 
+		void SetWidth(uint32 width) { _width = width; }
 		uint32 GetWidth() const { return _width; }
+		void SetHeight(uint32 height) { _height = height; }
 		uint32 GetHeight() const { return _height; }
 
+		std::vector<Color>& GetBuffer() { return _buffer; }
+		const std::vector<Color>& GetBuffer() const { return _buffer; }
 	private:
 		uint32 _width = 0;
 		uint32 _height = 0;

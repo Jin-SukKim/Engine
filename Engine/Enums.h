@@ -35,6 +35,7 @@ namespace JE {
 		Texture,
 		Sprite,
 		Mesh,
+		Flipbook,
 		Animation,
 		AudioClip, // Sound
 		Prefab, // 데이터 저장
