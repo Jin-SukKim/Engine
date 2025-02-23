@@ -9,6 +9,7 @@ namespace JE {
 		Texture(const std::wstring& name) : Super(name, ResourceType::Texture) {}
 		virtual ~Texture() override {}
 
+		static Texture* Create(const std::wstring name, uint32 width, uint32 height);
 		bool Load(const std::wstring& path) override;
 
 		// UV ÁÂÇ¥¿¡ ¸Â´Â TextureÀÇ ÇÈ¼¿ »ö

@@ -13,6 +13,8 @@ namespace JE {
 
 		template<typename T>
 		static T* Load(const std::wstring& key, const std::vector<Vertex2D>& vertices, const std::vector<uint32>& indices);
+	
+		static void Insert(const std::wstring& key, std::unique_ptr<Resource> resource);
 	private:
 		// TODO: wstring이 아닌 hash_key로 저장하면 메모리 사용량을 줄일 수 있지 않을까?
 		static std::map<std::wstring, std::unique_ptr<Resource>> _resources;

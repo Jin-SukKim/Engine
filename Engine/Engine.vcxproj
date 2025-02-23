@@ -184,7 +184,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
-    <ClInclude Include="AnimatorComponent.h" />
+    <ClInclude Include="Animator2DComponent.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="BoxComponent.h" />
     <ClInclude Include="Camera2DComponent.h" />
@@ -225,7 +225,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
-    <ClCompile Include="AnimatorComponent.cpp" />
+    <ClCompile Include="Animator2DComponent.cpp" />
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="BoxComponent.cpp" />
     <ClCompile Include="Camera2DComponent.cpp" />

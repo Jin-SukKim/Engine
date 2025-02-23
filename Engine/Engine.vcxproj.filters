@@ -166,7 +166,7 @@
     <ClInclude Include="RigidBodyComponent.h">
       <Filter>Source Files\public\Component</Filter>
     </ClInclude>
-    <ClInclude Include="AnimatorComponent.h">
+    <ClInclude Include="Animator2DComponent.h">
       <Filter>Source Files\public\Component</Filter>
     </ClInclude>
     <ClInclude Include="Flipbook.h">
@@ -267,7 +267,7 @@
     <ClCompile Include="Flipbook.cpp">
       <Filter>Source Files\private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="AnimatorComponent.cpp">
+    <ClCompile Include="Animator2DComponent.cpp">
       <Filter>Source Files\private\Component</Filter>
     </ClCompile>
   </ItemGroup>

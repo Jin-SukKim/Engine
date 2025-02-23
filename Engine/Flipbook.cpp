@@ -6,7 +6,7 @@ namespace JE {
 	{
 		return false;
 	}
-	void Flipbook::Update(float DeltaTime)
+	void Flipbook::Tick(float DeltaTime)
 	{
 		if (_bComplete) {
 			// Loop

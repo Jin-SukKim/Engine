@@ -2,7 +2,7 @@
 #include "Resource.h"
 
 namespace JE {
-	class Animator;
+	class Animator2DComponent;
 	class Texture;
 
 	// 2D animation
@@ -25,20 +25,21 @@ namespace JE {
 
 		bool Load(const std::wstring& path);
 
-		void Update(float DeltaTime);
+		void Tick(float DeltaTime);
 		void Render();
 
-		void CreateAnimation(const std::wstring& name, Texture* spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset, uint32 spriteLength, float duration);
+		void CreateAnimation(const std::wstring& name, Texture* spriteSheet, 
+			Vector2 leftTop, Vector2 size, Vector2 offset, uint32 spriteLength, float duration);
 	
 		void Reset();
 		const std::wstring& Name() const { return _spriteName; }
 		bool IsLoop() const { return _bLoop; }
 		bool IsComplete() const { return _bComplete; }
-		void SetAnimator(Animator* animator) { _animator = animator; }
+		void SetAnimator(Animator2DComponent* animator) { _animator = animator; }
 		const Texture* GetCurrentSprite() const { return &_sprite; }
 	private:
 		// 이 Flipbook을 가지고 있는 Actor를 가져와 사용하기 위해 animation을 관리하는 Component의 포인터를 가지고 있기
-		Animator* _animator = nullptr;
+		Animator2DComponent* _animator = nullptr;
 		std::wstring _spriteName = L"";
 		Texture* _spriteSheet = nullptr;
 		Texture _sprite; // 실제로 그려질 Texture

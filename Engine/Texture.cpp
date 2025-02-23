@@ -1,9 +1,31 @@
 #include "pch.h"
 #include "Texture.h"
+#include "AssetManager.h"
+
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb/stb_image.h"
 
 namespace JE {
+	Texture* Texture::Create(const std::wstring name, uint32 width, uint32 height)
+	{
+		Texture* image = AssetManager::Find<Texture>(name);
+		// 이미 같은 이름의 이미지가 있다면
+		if (image)
+			return image;
+
+		std::unique_ptr<Texture> newImg = std::make_unique<Texture>(name);
+		newImg->SetWidth(width);
+		newImg->SetHeight(height);
+
+		std::vector<Color>& buffer = newImg->GetBuffer();
+		buffer.clear();
+		buffer.resize(width * height);
+
+		AssetManager::Insert(name, std::move(newImg));
+
+		return AssetManager::Find<Texture>(name);
+	}
+
 	bool Texture::Load(const std::wstring& path)
 	{
 		//fs::path filePath = fs::current_path().parent_path() / "Resources" / filename;
