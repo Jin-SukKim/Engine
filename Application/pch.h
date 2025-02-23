@@ -15,5 +15,7 @@
 #include <string>
 
 #include "Math/MathHeaders.h"
+#include "Renderer/RendererHeaders.h"
+#include "Engine/EngineHeaders.h"
 
 using namespace JE;

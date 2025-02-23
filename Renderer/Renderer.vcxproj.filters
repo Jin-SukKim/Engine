@@ -5,18 +5,69 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Source Files\public">
+      <UniqueIdentifier>{5faaba15-84b5-4b04-8177-a3fa7181f09e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private">
+      <UniqueIdentifier>{d0824a1b-13d3-49ea-953f-a28f6a8b56a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\CPP">
+      <UniqueIdentifier>{22f8d9c6-9272-4f1b-be3e-38b417495294}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\CPP">
+      <UniqueIdentifier>{46dc4d6d-8cbd-42bc-8981-6461f9197d7e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="BitmapBuffer.h">
+      <Filter>Source Files\public</Filter>
+    </ClInclude>
+    <ClInclude Include="RendererHeaders.h">
+      <Filter>Source Files\public</Filter>
+    </ClInclude>
+    <ClInclude Include="RendererInterface.h">
+      <Filter>Source Files\public</Filter>
+    </ClInclude>
+    <ClInclude Include="CppRenderer.h">
+      <Filter>Source Files\public\CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Source Files\public\CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CppShader.h">
+      <Filter>Source Files\public\CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CppRenderer3D.h">
+      <Filter>Source Files\public\CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="CppRenderer2D.h">
+      <Filter>Source Files\public\CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="PerspectiveTest.h">
+      <Filter>Source Files\public\CPP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapBuffer.cpp">
+      <Filter>Source Files\private</Filter>
+    </ClCompile>
+    <ClCompile Include="CppRenderer.cpp">
+      <Filter>Source Files\private\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="CppRenderer2D.cpp">
+      <Filter>Source Files\private\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="CppRenderer3D.cpp">
+      <Filter>Source Files\private\CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="PerspectiveTest.cpp">
+      <Filter>Source Files\private\CPP</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

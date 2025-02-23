@@ -76,6 +76,15 @@ struct MathUtils
 			GetSinCosRad(outSin, outCos, Deg2Rad(degree));
 		}
 	}
+
+	// Linear Interpolation
+	template<typename T>
+	__forceinline static const T Lerp(const T& src, const T& dest, float alpha) {
+		// src = 시작점, dest = 끝점
+		// dest - src로 src에서 desf로 향하는 벡터를 구한 뒤 alpha를 곱해 dest - src와 평행한 벡터 생성
+		return static_cast<T>(src + (dest - src) * alpha);
+		// return static_cast<T>(alpha * src + (1 - alpha) * dest); // 직선의 방정식
+	}
 };
 
 }

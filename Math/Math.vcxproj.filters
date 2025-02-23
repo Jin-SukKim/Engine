@@ -5,39 +5,171 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Source Files\public">
+      <UniqueIdentifier>{45485b01-aba0-4a08-8b77-892b8fa501c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private">
+      <UniqueIdentifier>{3524f72c-e5ee-4eaa-a370-9077629ffdbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Color">
+      <UniqueIdentifier>{855c47f5-4fb5-498e-b870-9758b48a5ae3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Color">
+      <UniqueIdentifier>{0a9658aa-c50e-44c3-92ec-cd2fa45334ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Vector">
+      <UniqueIdentifier>{d1dc4b54-db2e-469f-a535-0472f229b86e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Vector">
+      <UniqueIdentifier>{ae0ea25e-33e9-4448-a554-07c2e18fb58a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Matrix">
+      <UniqueIdentifier>{159b7f8c-a0ad-4ede-97f8-83624052b341}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Matrix">
+      <UniqueIdentifier>{e128e0e0-a04e-4225-9978-4a4a963e4849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Shape">
+      <UniqueIdentifier>{64d15e4d-b06e-4d88-8515-745bf809d435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Shape">
+      <UniqueIdentifier>{aa3bb049-7c3f-4214-9509-032b63b328de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Utils">
+      <UniqueIdentifier>{6d32a07b-f944-4f75-a333-8409c178d4be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Utils">
+      <UniqueIdentifier>{650afaaa-2189-4a71-ab16-591e5c6cd152}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Rotation">
+      <UniqueIdentifier>{386e111c-afa2-4500-9709-fe45cd478797}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Rotation">
+      <UniqueIdentifier>{a8c2bd5f-b529-433c-9aa3-74de2c54a46c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Types.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="MathHeaders.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\public</Filter>
     </ClInclude>
-    <ClInclude Include="MathUtils.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Color.h">
+      <Filter>Source Files\public\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="Color32.h">
+      <Filter>Source Files\public\Color</Filter>
     </ClInclude>
     <ClInclude Include="ScreenPoint.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\public\Vector</Filter>
     </ClInclude>
     <ClInclude Include="Vector2.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\public\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix2x2.h">
+      <Filter>Source Files\public\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3x3.h">
+      <Filter>Source Files\public\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Source Files\public\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4.h">
+      <Filter>Source Files\public\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4x4.h">
+      <Filter>Source Files\public\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Source Files\public\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
+      <Filter>Source Files\public\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>Source Files\public\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Source Files\public\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>Source Files\public\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtils.h">
+      <Filter>Source Files\public\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Source Files\public</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Source Files\public\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotator.h">
+      <Filter>Source Files\public\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Source Files\public\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Frustum.h">
+      <Filter>Source Files\public\Shape</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Color.cpp">
+      <Filter>Source Files\private\Color</Filter>
     </ClCompile>
-    <ClCompile Include="ScreenPoint.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Color32.cpp">
+      <Filter>Source Files\private\Color</Filter>
     </ClCompile>
     <ClCompile Include="Vector2.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\private\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenPoint.cpp">
+      <Filter>Source Files\private\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3x3.cpp">
+      <Filter>Source Files\private\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix2x2.cpp">
+      <Filter>Source Files\private\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3.cpp">
+      <Filter>Source Files\private\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector4.cpp">
+      <Filter>Source Files\private\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4x4.cpp">
+      <Filter>Source Files\private\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Source Files\private\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>Source Files\private\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Source Files\private\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Source Files\private\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files\private</Filter>
     </ClCompile>
     <ClCompile Include="MathUtils.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\private\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>Source Files\private\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotator.cpp">
+      <Filter>Source Files\private\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Source Files\private\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Frustum.cpp">
+      <Filter>Source Files\private\Shape</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
