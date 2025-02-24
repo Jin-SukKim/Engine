@@ -56,6 +56,9 @@ namespace JE {
 		Event* GetCompleteEvent(const std::wstring& name);
 		Event* GetEndEvent(const std::wstring& name);
 
+		// Sprite Animation의 각 Frame을 AssetManager에 저장
+		const std::wstring& LoadSprite();
+
 		bool IsComplete() { return _activeAnimation->IsComplete();  }
 	private:
 		std::map<std::wstring, std::unique_ptr<Flipbook>> _animations = {};
@@ -63,5 +66,7 @@ namespace JE {
 		
 		// 각 Animation의 Event들 ( // 각 애니메이션마다 event 포이터 가지고 있기)
 		std::map<std::wstring, std::unique_ptr<Events>> _events = {}; 
+		Texture* _sprite = nullptr;
+		std::wstring _frameKey = L"";
 	};
 }

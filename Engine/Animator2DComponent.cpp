@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "Animator2DComponent.h"
+#include "SpriteActor.h"
+#include "Mesh2DComponent.h"
 #include "AssetManager.h"
 
 namespace JE {
@@ -21,12 +23,23 @@ namespace JE {
 			}
 		}
 	}
+
 	void Animator2DComponent::Render(IRenderer* r)
 	{
+		SpriteActor* owner = dynamic_cast<SpriteActor*>(this->GetOwner());
+		if (!owner)
+			return;
+
+		Mesh2DComponent* mesh = owner->GetComponent<Mesh2DComponent>();
+		if (!mesh)
+			return;
+
 		if (_activeAnimation) {
-			// TODO:
+			// 현재 Sprite Animation의 frame이 AssetManager에 저장되어 있다면 가져와서 사용
+			mesh->SetTexture(LoadSprite());
 		}
 	}
+
 	const std::wstring& Animator2DComponent::CreateAnimation(const std::wstring& name, Texture* spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset, uint32 spriteLength, float duration)
 	{
 		Flipbook* anim = FindAnimation(name);
@@ -165,5 +178,22 @@ namespace JE {
 		if (!events)
 			return nullptr;
 		return &events->EndEvent;
+	}
+
+	const std::wstring& Animator2DComponent::LoadSprite()
+	{
+		// Sprite Sheet에서 그릴 부분만 sub texture에 복사해 렌더링 준비
+		_frameKey = std::format(L"{0}_{1}", _activeAnimation->GetName(), _activeAnimation->GetIndex());
+		
+		Texture* sprite = AssetManager::Find<Texture>(_frameKey);
+		if (sprite)
+			return _frameKey;
+			
+		sprite = Texture::Create(_frameKey, static_cast<uint32>(_activeAnimation->GetSize().X), static_cast<uint32>(_activeAnimation->GetSize().Y));
+
+		std::vector<Color>& buffer = sprite->GetBuffer();
+		_activeAnimation->SetSpriteBuffer(buffer);
+
+		return _frameKey;
 	}
 }
