@@ -186,6 +186,9 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Animator2DComponent.h" />
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="AudioClip.h" />
+    <ClInclude Include="AudioListenerComponent.h" />
+    <ClInclude Include="AudioSourceComponent.h" />
     <ClInclude Include="BoxComponent.h" />
     <ClInclude Include="Camera2DComponent.h" />
     <ClInclude Include="CameraComponent.h" />
@@ -198,6 +201,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
     <ClInclude Include="EngineHeaders.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Enums.h" />
+    <ClInclude Include="Fmod.h" />
     <ClInclude Include="InputAction.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="InputTypes.h" />
@@ -227,6 +231,9 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Animator2DComponent.cpp" />
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="AudioClip.cpp" />
+    <ClCompile Include="AudioListenerComponent.cpp" />
+    <ClCompile Include="AudioSourceComponent.cpp" />
     <ClCompile Include="BoxComponent.cpp" />
     <ClCompile Include="Camera2DComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
@@ -235,6 +242,7 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Fmod.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="Mesh.cpp" />

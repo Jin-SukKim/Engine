@@ -3,9 +3,13 @@
 #ifdef _DEBUG
 #pragma comment(lib, "Math\\Debug\\Math.lib")
 #pragma comment(lib, "Renderer\\Debug\\Renderer.lib")
+#pragma comment(lib, "Fmod\\Debug\\fmodL_vc.lib")
+#pragma comment(lib, "Fmod\\Debug\\fmodstudioL_vc.lib")
 #else
 #pragma comment(lib, "Math\\Release\\Math.lib")
 #pragma comment(lib, "Renderer\\Release\\Renderer.lib")
+#pragma comment(lib, "Fmod\\Release\\fmodL_vc.lib")
+#pragma comment(lib, "Fmod\\Release\\fmodstudioL_vc.lib")
 #endif
 
 #include "Math/MathHeaders.h"
