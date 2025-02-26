@@ -53,7 +53,7 @@ namespace JE {
 	};
 
 	enum class UIType {
-		HpBar,
+		HUD,
 		Button,
 		MaxUIType
 	};

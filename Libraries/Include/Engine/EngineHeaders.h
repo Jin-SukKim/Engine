@@ -6,6 +6,8 @@
 #include <memory>
 #include <algorithm>
 #include <map>
+#include <stack>
+#include <queue>
 #include <filesystem>
 #include <bitset>
 

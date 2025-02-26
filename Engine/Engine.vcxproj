@@ -226,6 +226,10 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Transform2DComponent.h" />
     <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="UIBase.h" />
+    <ClInclude Include="UIButton.h" />
+    <ClInclude Include="UIHUD.h" />
+    <ClInclude Include="UIManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
@@ -269,6 +273,10 @@ attrib +r /s "..\Libraries\Include\Engine\*.h"</Command>
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Transform2DComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
+    <ClCompile Include="UIBase.cpp" />
+    <ClCompile Include="UIButton.cpp" />
+    <ClCompile Include="UIHUD.cpp" />
+    <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -53,6 +53,12 @@
     <Filter Include="Source Files\private\Collision">
       <UniqueIdentifier>{23b590bc-f0cd-4655-a6f7-47ee94c66ef0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\private\UI">
+      <UniqueIdentifier>{822b397c-01a7-48fc-9fa5-905232247068}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\UI">
+      <UniqueIdentifier>{aba019fe-13c1-46de-8776-cd03d3f6af3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -184,6 +190,16 @@
     <ClInclude Include="AudioSourceComponent.h">
       <Filter>Source Files\public\Component</Filter>
     </ClInclude>
+    <ClInclude Include="UIBase.h">
+      <Filter>Source Files\public\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIButton.h">
+      <Filter>Source Files\public\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIHUD.h">
+      <Filter>Source Files\public\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -293,6 +309,18 @@
     </ClCompile>
     <ClCompile Include="AudioSourceComponent.cpp">
       <Filter>Source Files\private\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="UIBase.cpp">
+      <Filter>Source Files\private\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIButton.cpp">
+      <Filter>Source Files\private\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIHUD.cpp">
+      <Filter>Source Files\private\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
