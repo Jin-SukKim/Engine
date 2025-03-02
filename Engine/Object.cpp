@@ -2,10 +2,12 @@
 #include "Object.h"
 
 namespace JE {
+	Object::Object(const std::wstring& name) : Super(name) {
+		_components.resize(static_cast<size_t>(ComponentType::MaxComponentType));
+	}
+
 	void Object::Init()
 	{
-		_components.resize(static_cast<size_t>(ComponentType::MaxComponentType));
-
 		for (std::unique_ptr<Component>& component : _components) {
 			Component* comp = component.get();
 			if (comp)

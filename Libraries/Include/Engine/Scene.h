@@ -32,6 +32,8 @@ namespace JE {
 		Layer* GetLayer(const LayerType& type) { return _layers[static_cast<uint16>(type)].get(); }
 		// Object를 옮기기
 		std::unique_ptr<Object>&& MoveObject(Object* obj);
+		void SaveObjectForNewScene(Object* obj);
+		void MoveObjectToNewScene(Scene* scene);
 		// Object 삭제
 		void EraseObject(Object* obj);
 	private:
@@ -41,6 +43,7 @@ namespace JE {
 	private:
 		// LayerType의 순서대로 저장하고 그리기
 		std::vector<std::unique_ptr<Layer>> _layers;
+		std::vector<std::unique_ptr<Object>> _dontDestroy;
 	};
 
 }

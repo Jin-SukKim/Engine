@@ -1,26 +1,25 @@
 #include "pch.h"
-#include "Application.h"
+#include "MainScene.h"
+#include "Windows/Application.h"
 
+#include "Renderer/CppRenderer2D.h"
 #include "Engine/SpriteActor.h"
 #include "Engine/Mesh2DComponent.h"
 #include "Engine/Camera2DComponent.h"
 #include "Engine/AssetManager.h"
+#include "Engine/MeshData.h"
 #include "Engine/Transform2DComponent.h"
 #include "Renderer/RendererInterface.h"
 
 namespace JE {
-
-	bool Application::Init(const ScreenPoint& screenSize)
+	MainScene::MainScene(const std::wstring& name) : Super(name)
 	{
-		if (!GetRenderer()->Init(screenSize))
-			return false;
-
-		if (!GetEngine()->Init())
-			return false;
-		
 		AssetManager::Load<Mesh2D>(L"SquareMesh", MeshData::SquareVertex, MeshData::SquareIndices);
+	}
 
-		actor = new SpriteActor(L"Player");
+	void MainScene::Init()
+	{
+		actor = Application::Instantiate<SpriteActor>(L"Player", LayerType::Player);
 		actor->Init();
 		Transform2DComponent* tr = actor->GetComponent<Transform2DComponent>();
 		tr->SetScale(30.f);
@@ -29,61 +28,43 @@ namespace JE {
 		cam = actor->AddComponent<Camera2DComponent>(L"PlayerCamera");
 		cam->AttachCamera(actor);
 
-		IRenderer2D* i2 = dynamic_cast<IRenderer2D*>(GetRenderer());
+		Super::Init();
+	}
+
+	void MainScene::Tick(const float& DeltaTime)
+	{
+		Super::Tick(DeltaTime);
+	}
+
+	void MainScene::Render(IRenderer* r)
+	{
+		Super::Render(r);
+
+		IRenderer2D* i2 = dynamic_cast<IRenderer2D*>(r);
 		if (i2)
 			i2->SetViewCamera(cam);
-		return true;
-	}
-
-	void Application::Run()
-	{
-		GetTimer()->Begin();
-
-		Tick();
-		Render();
-
-		GetTimer()->End();
-	}
-
-	void Application::Tick()
-	{
-		GetEngine()->Tick();
-	}
-
-	void Application::Render()
-	{
-
-		IRenderer* r = GetRenderer();
-		r->Clear(_bgColor);
-		GetEngine()->Render(r);
-
-		// BackBuffer에 그리기
-		//GetEngine()->Render();
-		DrawGizmo();
-
-		Transform2DComponent* tr = actor->GetComponent<Transform2DComponent>();
-		r->PushStatisticText(std::format(L"{:.9f} fps", GetTimer()->GetDeltaTime()));
+		DrawGizmo(r);
 
 		actor->Render(r);
-
-		r->Render(); // SwapBuffer
 	}
 
-	TimeManager* Application::GetTimer()
+	void MainScene::OnEnter()
 	{
-		if (GetEngine())
-			return GetEngine()->GetTimeManager();
-		return nullptr;
+		Super::OnEnter();
 	}
 
-	void Application::DrawGizmo()
+	void MainScene::OnExit()
 	{
-		IRenderer& r = *GetRenderer();
-		const Engine& g = *GetEngine();
 
+
+		Super::OnExit();
+	}
+
+	void MainScene::DrawGizmo(IRenderer* r)
+	{
 		Color gridColor(0.8f, 0.8f, 0.8f, 0.3f);
 
-		ScreenPoint screenSize = r.GetScreenSize();
+		ScreenPoint screenSize = r->GetScreenSize();
 
 		Vector2 viewPos = Vector2(0.f, 0.f); // 메인 카메라 위치
 		Vector2 extent = Vector2(screenSize.X * 0.5f, screenSize.Y * 0.5f); // 화면 중앙 좌표
@@ -101,12 +82,12 @@ namespace JE {
 		ScreenPoint gridBottomLeft = ScreenPoint::ToScreenCoordinate(screenSize, minGridPos - viewPos);
 
 		for (int x = 0; x < xGrid; x++)
-			r.DrawFullVerticalLine(gridBottomLeft.X + x * gridUnit, gridColor);
+			r->DrawFullVerticalLine(gridBottomLeft.X + x * gridUnit, gridColor);
 		for (int y = 0; y < yGrid; y++)
-			r.DrawFullHorizontalLine(gridBottomLeft.Y - y * gridUnit, gridColor);
+			r->DrawFullHorizontalLine(gridBottomLeft.Y - y * gridUnit, gridColor);
 
 		ScreenPoint worldOrigin = ScreenPoint::ToScreenCoordinate(screenSize, -viewPos);
-		r.DrawFullHorizontalLine(worldOrigin.Y, Color::Red);
-		r.DrawFullVerticalLine(worldOrigin.X, Color::Blue);
+		r->DrawFullHorizontalLine(worldOrigin.Y, Color::Red);
+		r->DrawFullVerticalLine(worldOrigin.X, Color::Blue);
 	}
 }

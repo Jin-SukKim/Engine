@@ -47,6 +47,9 @@ namespace JE {
 		if (iter == _scenes.end())
 			return nullptr;
 
+		//  새로운 Scene을 Load하기 전 유지할 object 이동
+		_activeScene->MoveObjectToNewScene((iter->second).get());
+
 		// 다음 Scene을 현재 Scene으로 사용
 		_activeScene = (iter->second).get();
 		_activeScene->OnEnter(); // Scene에 진입

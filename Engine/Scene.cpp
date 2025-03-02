@@ -65,6 +65,19 @@ namespace JE {
 		return _layers[static_cast<uint16>(type)]->MoveObject(obj);
 	}
 
+	void Scene::SaveObjectForNewScene(Object* obj)
+	{
+		_dontDestroy.emplace_back(MoveObject(obj));
+	}
+
+	void Scene::MoveObjectToNewScene(Scene* scene)
+	{
+		for (std::unique_ptr<Object>& obj : _dontDestroy)
+			scene->AddObject(std::move(obj), obj->GetLayerType());
+
+		_dontDestroy.clear();
+	}
+
 	void Scene::EraseObject(Object* obj)
 	{
 		// Object에 맞는 LayerType 가져오기

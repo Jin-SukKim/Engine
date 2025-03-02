@@ -14,7 +14,7 @@ namespace JE {
 			End
 		};
 
-		Object(const std::wstring& name) : Super(name) {}
+		Object(const std::wstring& name);
 		virtual ~Object() override {}
 
 		virtual void Init() override;

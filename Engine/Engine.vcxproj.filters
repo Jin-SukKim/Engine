@@ -199,7 +199,9 @@
     <ClInclude Include="UIHUD.h">
       <Filter>Source Files\public\UI</Filter>
     </ClInclude>
-    <ClInclude Include="UIManager.h" />
+    <ClInclude Include="UIManager.h">
+      <Filter>Source Files\public\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -320,7 +322,7 @@
       <Filter>Source Files\private\UI</Filter>
     </ClCompile>
     <ClCompile Include="UIManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\private\Manager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

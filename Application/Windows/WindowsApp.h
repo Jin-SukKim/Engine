@@ -1,9 +1,9 @@
 #pragma once
-#include "pch.h"
+#include "../pch.h"
 
 namespace WindowsApp {
 	// 윈도우 등록
-	ATOM Register(const HINSTANCE& hInstance, const std::wstring& windowName, WNDPROC proc) {
+	FORCEINLINE ATOM Register(const HINSTANCE& hInstance, const std::wstring& windowName, WNDPROC proc) {
 		WNDCLASSEXW wcex;
 
 		wcex.cbSize = sizeof(WNDCLASSEX);
@@ -24,7 +24,7 @@ namespace WindowsApp {
 	}
 
 	// 윈도우창 생성
-	HWND Create(const HINSTANCE& hInstance, const std::wstring& windowName, const ScreenPoint& screenSize, WNDPROC proc) {
+	FORCEINLINE HWND Create(const HINSTANCE& hInstance, const std::wstring& windowName, const ScreenPoint& screenSize, WNDPROC proc) {
 		if (!Register(hInstance, windowName, proc)) {
 			MessageBoxW(0, L"RegisterClass FAILED", 0, 0);
 			return NULL;
@@ -64,17 +64,17 @@ namespace WindowsApp {
 	}
 
 	// 생성한 윈도우창 화면에 표시하고 갱싱
-	void Show(HWND hWnd, int nCmdShow) {
+	FORCEINLINE void Show(HWND hWnd, int nCmdShow) {
 		::ShowWindow(hWnd, nCmdShow);
 		::UpdateWindow(hWnd);
 	}
 
-	void Destroy(HWND hWnd) {
+	FORCEINLINE void Destroy(HWND hWnd) {
 		::DestroyWindow(hWnd);
 	}
 
 	// 윈도우의 입력을 받는 Loop
-	FORCEINLINE bool Tick(HINSTANCE hInstance) {
+	FORCEINLINE bool Tick() {
 		MSG msg;
 		::ZeroMemory(&msg, sizeof(msg));
 
@@ -90,7 +90,7 @@ namespace WindowsApp {
 		return true;
 	}
 
-	LRESULT CALLBACK Proc(HWND hwnd, UINT32 msg, WPARAM wParam, LPARAM lParam)
+	FORCEINLINE LRESULT CALLBACK Proc(HWND hwnd, UINT32 msg, WPARAM wParam, LPARAM lParam)
 	{
 		switch (msg) {
 		case WM_DISPLAYCHANGE:
