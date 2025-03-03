@@ -1,6 +1,6 @@
 //#include "../pch.h"
 #include "Application.h"
-#include "WindowsApp.h"
+#include "WindowsUtils.h"
 #include "Renderer/CppRenderer2D.h"
 #include "Renderer/CppRenderer3D.h"
 
@@ -8,20 +8,15 @@
 #include "Renderer/RendererInterface.h"
 #include "Engine/Object.h"
 #include "../MainScene.h"
+#include "../WindowsApp.h"
 
 namespace JE {
-	std::unique_ptr<Engine> Application::_engine = std::make_unique<Engine>();
+	std::map<std::wstring, std::unique_ptr<WindowsApp>> Application::_windows = {};
 
-	Application::Application(const HINSTANCE& hInstance, const std::wstring& windowName, Dimension dimension) : _screenSize(800, 600), _windowName(windowName)
+	Application::Application(const HINSTANCE& hInstance)
 	{
-		_hwnd = WindowsApp::Create(hInstance, windowName, _screenSize, MainProc);
-
-		if (Dimension::DD == dimension)
-			_renderer = std::make_unique<CppRenderer2D>(_hwnd);
-		else if (Dimension::DDD == dimension)
-			_renderer = std::make_unique<CppRenderer3D>(_hwnd);
-
-		LoadScenes();
+		AddWindow(hInstance, L"MainWindow", WindowsApp::Dimension::DD);
+		//AddWindow(hInstance, L"SubWindow", WindowsApp::Dimension::DD);
 	}
 
 	Application::~Application()
@@ -31,16 +26,12 @@ namespace JE {
 
 	bool Application::Init(int nCmdShow)
 	{
-		if (!_hwnd)
+		if (!Engine::GetEngine().Init())
 			return false;
 
-		WindowsApp::Show(_hwnd, nCmdShow);
-
-		if (!GetRenderer()->Init(_screenSize))
-			return false;
-
-		if (!GetEngine()->Init())
-			return false;
+		for (const auto& [key, win] : _windows)
+			if (!win->Init(nCmdShow))
+				return false;
 
 		return true;
 	}
@@ -57,82 +48,40 @@ namespace JE {
 
 	void Application::Tick()
 	{
-		GetEngine()->Tick();
+		Engine::GetEngine().Tick();
 	}
 
 	void Application::Render()
 	{
-		IRenderer* r = GetRenderer();
-		r->Clear(_bgColor);
-		GetEngine()->Render(r);
-
-		r->PushStatisticText(std::format(L"{:.9f} fps", GetTimer()->GetDeltaTime()));
-
-		r->Render(); // SwapBuffer
+		for (const auto& [key, win] : _windows)
+			win->Render();
 	}
 
 	void Application::Destroy()
 	{
-		WindowsApp::Destroy(_hwnd);
+		for (const auto& [key, win] : _windows)
+			win->Destroy();
 	}
 
 	TimeManager* Application::GetTimer()
 	{
-		if (GetEngine())
-			return GetEngine()->GetTimeManager();
-		return nullptr;
-	}
-
-	HINSTANCE Application::GetHInstance()
-	{
-		return reinterpret_cast<HINSTANCE>(GetWindowLongPtr(_hwnd, GWLP_HINSTANCE));
+		return Engine::GetEngine().GetTimeManager();
 	}
 
 	void Application::LoadScenes()
 	{
-		if (!GetEngine())
-			return;
-
-		SceneManager* manager = GetEngine()->GetSceneManager();
+		SceneManager* manager = Engine::GetEngine().GetSceneManager();
 
 		manager->CreateScene<MainScene>(L"MainScene");
 		manager->LoadScene(L"MainScene");
 	}
 
-	LRESULT CALLBACK MainProc(HWND hwnd, UINT32 msg, WPARAM wParam, LPARAM lParam)
+	void Application::AddWindow(const HINSTANCE& hIstance, const std::wstring& windowName, WindowsApp::Dimension dim)
 	{
-		switch (msg) {
-		case WM_DISPLAYCHANGE:
-		case WM_SIZE:
-		{
-			break;
-		}
-		case WM_CLOSE:
-		{
-			WindowsApp::Destroy(hwnd);
-			return 0;
-		}
-		case WM_DESTROY:
-		{
-			::PostQuitMessage(0);
-			return 0;
-		}
-		case WM_KEYDOWN:
-		{
-			if (wParam == VK_ESCAPE) // esc ¹öÆ°
-				WindowsApp::Destroy(hwnd);
-			break;
-		}
-		//case WM_SYSCOMMAND:
-		//{
-		//	if (wParam == SC_SCREENSAVE || wParam == SC_MONITORPOWER || wParam == SC_KEYMENU)
-		//	{
-		//		return 0;
-		//	}
-		//	break;
-		//}
-		}
-
-		return ::DefWindowProc(hwnd, msg, wParam, lParam);
+		auto iter = _windows.find(windowName);
+		if (iter != _windows.end())
+			return;
+		std::unique_ptr<WindowsApp> window = std::make_unique<WindowsApp>(hIstance, windowName, dim);
+		_windows[windowName] = std::move(window);
 	}
 }

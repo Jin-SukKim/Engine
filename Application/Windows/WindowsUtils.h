@@ -1,7 +1,7 @@
 #pragma once
 #include "../pch.h"
 
-namespace WindowsApp {
+namespace WindowsUtils {
 	// 윈도우 등록
 	FORCEINLINE ATOM Register(const HINSTANCE& hInstance, const std::wstring& windowName, WNDPROC proc) {
 		WNDCLASSEXW wcex;

@@ -19,7 +19,7 @@ namespace JE {
 
 	void MainScene::Init()
 	{
-		actor = Application::Instantiate<SpriteActor>(L"Player", LayerType::Player);
+		actor = Engine::Instantiate<SpriteActor>(L"Player", LayerType::Player);
 		actor->Init();
 		Transform2DComponent* tr = actor->GetComponent<Transform2DComponent>();
 		tr->SetScale(30.f);

@@ -19,12 +19,13 @@
     <ClInclude Include="Windows\Application.h">
       <Filter>Source Files\public</Filter>
     </ClInclude>
-    <ClInclude Include="Windows\WindowsApp.h">
+    <ClInclude Include="Windows\WindowsUtils.h">
       <Filter>Source Files\public</Filter>
     </ClInclude>
     <ClInclude Include="TextureEditor.h" />
     <ClInclude Include="MainApp.h" />
     <ClInclude Include="MainScene.h" />
+    <ClInclude Include="WindowsApp.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -43,6 +44,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MainScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -166,14 +166,16 @@
     <ClInclude Include="MainApp.h" />
     <ClInclude Include="MainScene.h" />
     <ClInclude Include="TextureEditor.h" />
+    <ClInclude Include="WindowsApp.h" />
     <ClInclude Include="Windows\Application.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Windows\WindowsApp.h" />
+    <ClInclude Include="Windows\WindowsUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainApp.cpp" />
     <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="TextureEditor.cpp" />
+    <ClCompile Include="WindowsApp.cpp" />
     <ClCompile Include="Windows\Application.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp">
