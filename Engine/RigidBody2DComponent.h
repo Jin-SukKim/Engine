@@ -25,7 +25,7 @@ namespace JE {
 		// Vector2(속도 제한, 중력 방향 속도 제한)
 		void SetVelocityLimit(Vector2 limit) { _velocityLimit = limit; }
 		// Vector2(0, 중력 방향과 중력)
-		void SetGravity(Vector2 gravity) { _gravity = gravity; _gravityDir = _gravity.GetNormalize(); }
+		void SetGravity(Vector2 gravity = Vector2(0.f, 800.f)) { _gravity = gravity; _gravityDir = _gravity.GetNormalize(); }
 
 		void CalculateVelocity(const float& DeltaTime);
 		void GravityForce(const float& DeltaTime);

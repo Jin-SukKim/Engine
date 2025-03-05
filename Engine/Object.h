@@ -49,7 +49,6 @@ namespace JE {
 	inline T* Object::AddComponent()
 	{
 		std::unique_ptr<T> comp = std::make_unique<T>();
-		comp->Init();
 		comp->SetOwner(this);
 		size_t idx = static_cast<size_t>(comp->GetType());
 		_components[idx] = std::move(comp);
@@ -60,7 +59,6 @@ namespace JE {
 	inline T* Object::AddComponent(const std::wstring& name)
 	{
 		std::unique_ptr<T> comp = std::make_unique<T>(name);
-		comp->Init();
 		comp->SetOwner(this);
 		size_t idx = static_cast<size_t>(comp->GetType());
 		_components[idx] = std::move(comp);

@@ -1,7 +1,6 @@
 #include "pch.h"
+#include "Application.h"
 #include "./Windows/WindowsUtils.h"
-#include "./Windows/Application.h"
-#include "Renderer/CppRenderer2D.h"
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,

@@ -18,6 +18,8 @@ namespace JE {
 
 		_mesh = AssetManager::Find<Mesh2D>(L"SquareMesh");
 		_transform = std::make_unique<Transform2DComponent>(L"BoundingTransform");
+		_bound = Rectangle(_mesh->GetVertices());
+
 		UpdateRect();
 	}
 
@@ -30,13 +32,17 @@ namespace JE {
 
 	void RectangleComponent::Render(IRenderer* r)
 	{
+		if (!IsVisible())
+			return;
 		Super::Render(r);
 
+		DrawMode temp = r->GetDrawMode();
+		r->SetDrawMode(DrawMode::Wireframe);
 		IRenderer2D* r2d = dynamic_cast<IRenderer2D*>(r);
 		if (r2d == nullptr)
 			return;
-
 		r2d->DrawMesh(_mesh, _transform.get(), nullptr);
+		r->SetDrawMode(temp);
 	}
 
 	bool RectangleComponent::CheckCollision(Collider* other)
@@ -44,12 +50,19 @@ namespace JE {
 		if (Super::CheckCollision(other) == false)
 			return false;
 
+		Matrix3x3 mat = _transform->GetTransformMatrix();
+		Rectangle rect = { _bound.Min * mat, _bound.Max * mat };
+
 		switch (other->GetColliderType())
-		{
-		case ColliderType::Rectangle:
-			return this->GetRect().Intersect(dynamic_cast<RectangleComponent*>(other)->GetRect());
+		{ 
+		case ColliderType::Rectangle: {
+			RectangleComponent* rect2 = dynamic_cast<RectangleComponent*>(other);
+			Matrix3x3 otherMat = rect2->GetTransformMatrix();
+			Rectangle otherRect = { rect2->GetRect().Min * otherMat, rect2->GetRect().Max * otherMat };
+			return rect.Intersect(otherRect);
+		}
 		case ColliderType::Circle:	
-			return CheckCollisionCircleToRect(dynamic_cast<CircleComponent*>(other)->GetCircle(), this->GetRect());
+			return CheckCollisionCircleToRect(dynamic_cast<CircleComponent*>(other)->GetCircle(), rect);
 		}
 
 		return false;
@@ -68,12 +81,10 @@ namespace JE {
 		// Collider의 위치와 크기에 맞게 Transform 수정
 		_transform->SetPos(tr->GetPos() + GetOffset().ToVector2());
 		_transform->SetScale(tr->GetScale() * GetScale().ToVector2());
+	}
 
-		std::vector<Vertex2D> vertices = _mesh->GetVertices();
-		Matrix3x3 mat = _transform->GetTransformMatrix();
-		for (Vertex2D& v : vertices) {
-			v.Pos = v.Pos * mat;
-			_bound.UpdateMinMax(v.Pos);
-		}
+	const Matrix3x3& RectangleComponent::GetTransformMatrix()
+	{
+		return _transform->GetTransformMatrix();
 	}
 }

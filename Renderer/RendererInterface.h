@@ -44,6 +44,7 @@ public:
 
 	// Render 모드 설정 : Normal, Wireframe etc
 	virtual void SetDrawMode(DrawMode mode) = 0;
+	virtual DrawMode GetDrawMode() = 0;
 	virtual bool IsWireframe() const = 0;
 };
 

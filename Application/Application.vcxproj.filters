@@ -16,37 +16,37 @@
     <ClInclude Include="pch.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Windows\Application.h">
+    <ClInclude Include="Application.h">
       <Filter>Source Files\public</Filter>
     </ClInclude>
     <ClInclude Include="Windows\WindowsUtils.h">
       <Filter>Source Files\public</Filter>
     </ClInclude>
-    <ClInclude Include="TextureEditor.h" />
-    <ClInclude Include="MainApp.h" />
-    <ClInclude Include="MainScene.h" />
-    <ClInclude Include="WindowsApp.h" />
+    <ClInclude Include="Windows\TextureEditor.h" />
+    <ClInclude Include="Windows\MainEditor.h" />
+    <ClInclude Include="Scene\MainScene.h" />
+    <ClInclude Include="Windows\WindowsApp.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Windows\Application.cpp">
+    <ClCompile Include="Application.cpp">
       <Filter>Source Files\private</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files\private</Filter>
     </ClCompile>
-    <ClCompile Include="TextureEditor.cpp">
+    <ClCompile Include="Windows\TextureEditor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainApp.cpp">
+    <ClCompile Include="Windows\MainEditor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainScene.cpp">
+    <ClCompile Include="Scene\MainScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WindowsApp.cpp">
+    <ClCompile Include="Windows\WindowsApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

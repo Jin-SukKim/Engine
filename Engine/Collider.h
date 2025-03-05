@@ -34,6 +34,7 @@ namespace JE {
 		void SetColliderType(const ColliderType& type) { _type = type; }
 		ColliderType GetColliderType() const { return _type; }
 		void SetVisible(bool show) { _show = show; }
+		bool IsVisible() { return _show; }
 
 		void SetCollisionEnable() { _enable = true; }
 		void SetCollisionDisable() { _enable = false; }

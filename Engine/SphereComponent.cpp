@@ -19,6 +19,8 @@ namespace JE {
 
 		//_mesh = AssetManager::Find<Mesh>(L"BoxMesh");
 		_transform = std::make_unique<TransformComponent>(L"BoundingTransform");
+		_bound = Sphere(_mesh->GetVertices());
+
 		UpdateSphere();
 	}
 
@@ -31,13 +33,18 @@ namespace JE {
 
 	void SphereComponent::Render(IRenderer* r)
 	{
+		if (!IsVisible())
+			return;
 		Super::Render(r);
 
+		DrawMode temp = r->GetDrawMode();
+		r->SetDrawMode(DrawMode::Wireframe);
 		IRenderer3D* r3d = dynamic_cast<IRenderer3D*>(r);
 		if (r3d == nullptr)
 			return;
 
 		r3d->DrawMesh(_mesh, _transform.get(), nullptr);
+		r->SetDrawMode(temp);
 	}
 
 	bool SphereComponent::CheckCollision(Collider* other)
@@ -47,8 +54,12 @@ namespace JE {
 
 		switch (other->GetColliderType())
 		{
-		case ColliderType::Box:
-			return CheckCollisionSphereToBox(this->GetSphere(), dynamic_cast<BoxComponent*>(other)->GetBox());
+		case ColliderType::Box: {
+			BoxComponent* box2 = dynamic_cast<BoxComponent*>(other);
+			Matrix4x4 otherMat = box2->GetTransformMatrix();
+			Box otherBox = { (Vector4(box2->GetBox().Min) * otherMat).ToVector3(), (Vector4(box2->GetBox().Max) * otherMat).ToVector3() };
+			return CheckCollisionSphereToBox(this->GetSphere(), otherBox);
+		}
 		case ColliderType::Sphere:
 			return this->GetSphere().Intersect(dynamic_cast<SphereComponent*>(other)->GetSphere());
 		}

@@ -172,4 +172,7 @@
       <Filter>Source Files\private\Shape</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
 </Project>

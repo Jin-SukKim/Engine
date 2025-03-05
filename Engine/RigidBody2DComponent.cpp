@@ -7,6 +7,8 @@ namespace JE {
 	void RigidBody2DComponent::Init()
 	{
 		Super::Init();
+		
+		SetGravity();
 	}
 
 	void RigidBody2DComponent::Tick(const float& DeltaTime)

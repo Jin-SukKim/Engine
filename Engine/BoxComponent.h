@@ -21,6 +21,7 @@ namespace JE {
         void UpdateBox();
         const Box& GetBox() { return _bound; };
 
+        const Matrix4x4& GetTransformMatrix();
     private:
         Vector3 _size = Vector3::One;
         Box _bound;

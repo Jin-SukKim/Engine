@@ -7,9 +7,14 @@ namespace JE {
 		// 기본적인 충돌 설정
 		if (_sceneManager) {
 			SetLayerCollision(LayerType::Actor, LayerType::Floor, true);
+			SetLayerCollision(LayerType::Actor, LayerType::Object, true);
+			SetLayerCollision(LayerType::Actor, LayerType::Player, true);
+			SetLayerCollision(LayerType::Actor, LayerType::Enemy, true);
 			SetLayerCollision(LayerType::Player, LayerType::Floor, true);
 			SetLayerCollision(LayerType::Player, LayerType::Enemy, true);
+			SetLayerCollision(LayerType::Player, LayerType::Object, true);
 			SetLayerCollision(LayerType::Enemy, LayerType::Floor, true);
+			SetLayerCollision(LayerType::Enemy, LayerType::Object, true);
 		}
 	}
 

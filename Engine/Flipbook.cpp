@@ -64,7 +64,7 @@ namespace JE {
 	void Flipbook::Reset()
 	{
 		_time = 0.f;
-		_index = -1;
+		_index = 0;
 		_bComplete = false;
 	}
 }

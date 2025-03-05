@@ -19,6 +19,8 @@ namespace JE {
 
 		//_mesh = AssetManager::Find<Mesh>(L"BoxMesh");
 		_transform = std::make_unique<TransformComponent>(L"BoundingTransform");
+		_bound = Box(_mesh->GetVertices());
+
 		UpdateBox();
 	}
 
@@ -31,26 +33,38 @@ namespace JE {
 
 	void BoxComponent::Render(IRenderer* r)
 	{
+		if (!IsVisible())
+			return;
 		Super::Render(r);
 
+		DrawMode temp = r->GetDrawMode();
+		r->SetDrawMode(DrawMode::Wireframe);
 		IRenderer3D* r3d = dynamic_cast<IRenderer3D*>(r);
 		if (r3d == nullptr)
 			return;
 
 		r3d->DrawMesh(_mesh, _transform.get(), nullptr);
+		r->SetDrawMode(temp);
 	}
 
 	bool BoxComponent::CheckCollision(Collider* other)
 	{
 		if (Super::CheckCollision(other) == false)
 			return false;
+		
+		Matrix4x4 mat = _transform->GetTransformMatrix();
+		Box box = { (Vector4(_bound.Min) * mat).ToVector3(), (Vector4(_bound.Max) * mat).ToVector3() };
 
 		switch (other->GetColliderType())
 		{
-		case ColliderType::Box:
-			return this->GetBox().Intersect(dynamic_cast<BoxComponent*>(other)->GetBox());
+		case ColliderType::Box: {
+			BoxComponent* box2 = dynamic_cast<BoxComponent*>(other);
+			Matrix4x4 otherMat = box2->GetTransformMatrix();
+			Box otherBox = { (Vector4(box2->GetBox().Min) * otherMat).ToVector3(), (Vector4(box2->GetBox().Max) * otherMat).ToVector3() };
+			return box.Intersect(otherBox);
+		}
 		case ColliderType::Sphere:
-			return CheckCollisionSphereToBox(dynamic_cast<SphereComponent*>(other)->GetSphere(), this->GetBox());
+			return CheckCollisionSphereToBox(dynamic_cast<SphereComponent*>(other)->GetSphere(), box);
 		}
 
 		return false;
@@ -69,12 +83,10 @@ namespace JE {
 		// Collider의 위치와 크기에 맞게 Transform 수정
 		_transform->SetPos(tr->GetPos() + GetOffset().ToVector2());
 		_transform->SetScale(tr->GetScale() * GetScale().ToVector2());
+	}
 
-		std::vector<Vertex3D> vertices = _mesh->GetVertices();
-		Matrix4x4 mat = _transform->GetTransformMatrix();
-		for (Vertex3D& v : vertices) {
-			v.Pos = v.Pos * mat;
-			_bound.UpdateMinMax(v.Pos.ToVector3());
-		}
+	const Matrix4x4& BoxComponent::GetTransformMatrix()
+	{
+		return _transform->GetTransformMatrix();
 	}
 };

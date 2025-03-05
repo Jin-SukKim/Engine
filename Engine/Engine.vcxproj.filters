@@ -59,6 +59,42 @@
     <Filter Include="Source Files\public\UI">
       <UniqueIdentifier>{aba019fe-13c1-46de-8776-cd03d3f6af3d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\private\Component\Collision">
+      <UniqueIdentifier>{5fbe37c6-f630-41d5-ab83-0bed6014007d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Component\Transform">
+      <UniqueIdentifier>{ef4775c9-d004-4a42-9401-4c6dfe36bba5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Component\Animation">
+      <UniqueIdentifier>{bf1b3d8e-d626-4806-8f0b-277b28665cc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Component\Camera">
+      <UniqueIdentifier>{20396753-ec32-4514-b929-3ec1f768dc79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Component\Mesh">
+      <UniqueIdentifier>{7a668139-b716-49d6-8562-a55a6fae0ebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private\Component\Audio">
+      <UniqueIdentifier>{c354d73d-738f-4cbd-bfca-09ba71411c6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Component\Collision">
+      <UniqueIdentifier>{8d85fca1-42bb-43d5-984d-329f6a7753f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Component\Animation">
+      <UniqueIdentifier>{51b403c6-ca5b-4ec3-ba45-173fbeb49f97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Component\Camera">
+      <UniqueIdentifier>{98e7e072-f4da-4f48-a80a-bc96db1672a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Component\Mesh">
+      <UniqueIdentifier>{2f327ed9-cd12-40ee-9df5-fd52d06be9f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Component\Audio">
+      <UniqueIdentifier>{723ed38d-bc9b-4beb-bae2-6db7a4cd5b8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\public\Component\Transform">
+      <UniqueIdentifier>{f0ccb4f6-9251-439f-9a63-f1f75caa76db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -91,23 +127,11 @@
     <ClInclude Include="Enums.h">
       <Filter>Source Files\public\Common</Filter>
     </ClInclude>
-    <ClInclude Include="Transform2DComponent.h">
-      <Filter>Source Files\public\Component</Filter>
-    </ClInclude>
     <ClInclude Include="SpriteActor.h">
       <Filter>Source Files\public\Actor</Filter>
     </ClInclude>
-    <ClInclude Include="TransformComponent.h">
-      <Filter>Source Files\public\Component</Filter>
-    </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Source Files\public</Filter>
-    </ClInclude>
-    <ClInclude Include="CameraComponent.h">
-      <Filter>Source Files\public\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera2DComponent.h">
-      <Filter>Source Files\public\Component</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Source Files\public\Actor</Filter>
@@ -126,12 +150,6 @@
     </ClInclude>
     <ClInclude Include="Mesh2D.h">
       <Filter>Source Files\public\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh2DComponent.h">
-      <Filter>Source Files\public\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="MeshComponent.h">
-      <Filter>Source Files\public\Component</Filter>
     </ClInclude>
     <ClInclude Include="MeshData.h">
       <Filter>Source Files\public\Resource</Filter>
@@ -154,27 +172,6 @@
     <ClInclude Include="CollisionDelegate.h">
       <Filter>Source Files\public\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="CircleComponent.h">
-      <Filter>Source Files\public\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="RectangleComponent.h">
-      <Filter>Source Files\public\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="BoxComponent.h">
-      <Filter>Source Files\public\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="SphereComponent.h">
-      <Filter>Source Files\public\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="RigidBody2DComponent.h">
-      <Filter>Source Files\public\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="RigidBodyComponent.h">
-      <Filter>Source Files\public\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Animator2DComponent.h">
-      <Filter>Source Files\public\Component</Filter>
-    </ClInclude>
     <ClInclude Include="Flipbook.h">
       <Filter>Source Files\public\Resource</Filter>
     </ClInclude>
@@ -183,12 +180,6 @@
     </ClInclude>
     <ClInclude Include="Fmod.h">
       <Filter>Source Files\public\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="AudioListenerComponent.h">
-      <Filter>Source Files\public\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="AudioSourceComponent.h">
-      <Filter>Source Files\public\Component</Filter>
     </ClInclude>
     <ClInclude Include="UIBase.h">
       <Filter>Source Files\public\UI</Filter>
@@ -201,6 +192,51 @@
     </ClInclude>
     <ClInclude Include="UIManager.h">
       <Filter>Source Files\public\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator2DComponent.h">
+      <Filter>Source Files\public\Component\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioListenerComponent.h">
+      <Filter>Source Files\public\Component\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioSourceComponent.h">
+      <Filter>Source Files\public\Component\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxComponent.h">
+      <Filter>Source Files\public\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraComponent.h">
+      <Filter>Source Files\public\Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera2DComponent.h">
+      <Filter>Source Files\public\Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleComponent.h">
+      <Filter>Source Files\public\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh2DComponent.h">
+      <Filter>Source Files\public\Component\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshComponent.h">
+      <Filter>Source Files\public\Component\Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleComponent.h">
+      <Filter>Source Files\public\Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBodyComponent.h">
+      <Filter>Source Files\public\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody2DComponent.h">
+      <Filter>Source Files\public\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform2DComponent.h">
+      <Filter>Source Files\public\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Source Files\public\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereComponent.h">
+      <Filter>Source Files\public\Component\Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -222,20 +258,8 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>Source Files\private\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="Transform2DComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
-    </ClCompile>
     <ClCompile Include="SpriteActor.cpp">
       <Filter>Source Files\private\Actor</Filter>
-    </ClCompile>
-    <ClCompile Include="TransformComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera2DComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="CameraComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>Source Files\private\Actor</Filter>
@@ -255,12 +279,6 @@
     <ClCompile Include="Mesh2D.cpp">
       <Filter>Source Files\private\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh2DComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
-    </ClCompile>
     <ClCompile Include="Layer.cpp">
       <Filter>Source Files\private\Scene</Filter>
     </ClCompile>
@@ -276,41 +294,14 @@
     <ClCompile Include="CollisionManager.cpp">
       <Filter>Source Files\private\Manager</Filter>
     </ClCompile>
-    <ClCompile Include="CircleComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="RectangleComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="BoxComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="SphereComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="RigidBody2DComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="RigidBodyComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
-    </ClCompile>
     <ClCompile Include="Flipbook.cpp">
       <Filter>Source Files\private\Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="Animator2DComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
     </ClCompile>
     <ClCompile Include="AudioClip.cpp">
       <Filter>Source Files\private\Resource</Filter>
     </ClCompile>
     <ClCompile Include="Fmod.cpp">
       <Filter>Source Files\private\Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="AudioListenerComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="AudioSourceComponent.cpp">
-      <Filter>Source Files\private\Component</Filter>
     </ClCompile>
     <ClCompile Include="UIBase.cpp">
       <Filter>Source Files\private\UI</Filter>
@@ -323,6 +314,51 @@
     </ClCompile>
     <ClCompile Include="UIManager.cpp">
       <Filter>Source Files\private\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxComponent.cpp">
+      <Filter>Source Files\private\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleComponent.cpp">
+      <Filter>Source Files\private\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereComponent.cpp">
+      <Filter>Source Files\private\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleComponent.cpp">
+      <Filter>Source Files\private\Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform2DComponent.cpp">
+      <Filter>Source Files\private\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>Source Files\private\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBody2DComponent.cpp">
+      <Filter>Source Files\private\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBodyComponent.cpp">
+      <Filter>Source Files\private\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator2DComponent.cpp">
+      <Filter>Source Files\private\Component\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera2DComponent.cpp">
+      <Filter>Source Files\private\Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraComponent.cpp">
+      <Filter>Source Files\private\Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh2DComponent.cpp">
+      <Filter>Source Files\private\Component\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshComponent.cpp">
+      <Filter>Source Files\private\Component\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioListenerComponent.cpp">
+      <Filter>Source Files\private\Component\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioSourceComponent.cpp">
+      <Filter>Source Files\private\Component\Audio</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -43,7 +43,6 @@ namespace JE {
 
 	void Scene::OnEnter()
 	{
-		Init();
 	}
 
 	void Scene::OnExit()

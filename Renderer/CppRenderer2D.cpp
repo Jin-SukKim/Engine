@@ -81,6 +81,8 @@ namespace JE {
 				if (texture) {
 					Vector2 uv = triangle[0].UV * oneMinusST + triangle[1].UV * s + triangle[2].UV * t;
 					color = texture->SamplePoint(uv);
+					if (color.A == 0.f)
+						continue;
 				}
 				// 무게중심좌표를 활용해 삼각형의 정점의 색으로 픽셀의 색 지정
 				else

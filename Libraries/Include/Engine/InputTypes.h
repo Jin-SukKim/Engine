@@ -28,6 +28,8 @@ namespace JE {
 		F3 = VK_F3,
 		F4 = VK_F4,
 		F5 = VK_F5,
+		LButton = VK_LBUTTON,
+		RButton = VK_RBUTTON,
 		MaxButtons // InputButton °³¼ö
 	};
 

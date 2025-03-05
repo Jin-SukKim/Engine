@@ -34,6 +34,7 @@ public:
 
 	// Render 모드 설정 : Normal, Wireframe etc
 	virtual void SetDrawMode(DrawMode mode) { _mode = mode; }
+	virtual DrawMode GetDrawMode() { return _mode; }
 	virtual bool IsWireframe() const { return _mode == DrawMode::Wireframe; }
 
 private:

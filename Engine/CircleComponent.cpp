@@ -7,6 +7,7 @@
 #include "Transform2DComponent.h"
 #include "Renderer/CppRenderer2D.h"
 
+#include "Math/Rectangle.h"
 namespace JE {
 	void CircleComponent::Init()
 	{
@@ -16,6 +17,9 @@ namespace JE {
 		//AssetManager::Load<Mesh2D>(L"CircleMesh", MeshData::CircleVertex, MeshData::CircleIndices);
 
 		//_mesh = AssetManager::Find<Mesh2D>(L"CircleMesh");
+		_transform = std::make_unique<Transform2DComponent>(L"BoundingTransform");
+		_bound = Circle(_mesh->GetVertices());
+
 		UpdateCircle();
 	}
 	void CircleComponent::Tick(const float& DeltaTime)
@@ -26,13 +30,18 @@ namespace JE {
 	}
 	void CircleComponent::Render(IRenderer* r)
 	{
+		if (!IsVisible())
+			return;
 		Super::Render(r);
-
+		
+		DrawMode temp = r->GetDrawMode();
+		r->SetDrawMode(DrawMode::Wireframe);
 		IRenderer2D* r2d = dynamic_cast<IRenderer2D*>(r);
 		if (r2d == nullptr)
 			return;
 
 		r2d->DrawMesh(_mesh, _transform.get(), nullptr);
+		r->SetDrawMode(temp);
 	}
 
 	bool CircleComponent::CheckCollision(Collider* other)
@@ -42,8 +51,12 @@ namespace JE {
 
 		switch (other->GetColliderType())
 		{
-		case ColliderType::Rectangle:
-			return CheckCollisionCircleToRect(this->GetCircle(), dynamic_cast<RectangleComponent*>(other)->GetRect());
+		case ColliderType::Rectangle: {
+			RectangleComponent* rect2 = dynamic_cast<RectangleComponent*>(other);
+			Matrix3x3 otherMat = rect2->GetTransformMatrix();
+			Rectangle otherRect = { rect2->GetRect().Min * otherMat, rect2->GetRect().Max * otherMat };
+			return CheckCollisionCircleToRect(this->GetCircle(), otherRect);
+		}
 		case ColliderType::Circle:
 			return this->GetCircle().Intersect(dynamic_cast<CircleComponent*>(other)->GetCircle());
 		}
@@ -65,12 +78,10 @@ namespace JE {
 		_transform->SetPos(tr->GetPos() + GetOffset().ToVector2());
 		_transform->SetScale(tr->GetScale() * GetScale().ToVector2());
 
-		std::vector<Vertex2D> vertices = _mesh->GetVertices();
+		const std::vector<Vertex2D>& vertices = _mesh->GetVertices();
 		Matrix3x3 mat = _transform->GetTransformMatrix();
-		for (Vertex2D& v : vertices) {
-			v.Pos = v.Pos * mat;
+		for (const Vertex2D& v : vertices) {
+			_bound.UpdateRadius({ v.Pos * mat });
 		}
-
-		_bound.UpdateRadius(vertices);
 	}
 }

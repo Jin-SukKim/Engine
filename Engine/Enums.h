@@ -25,6 +25,7 @@ namespace JE {
 		Actor,
 		Player,
 		Enemy,
+		Object,
 		Particle,
 		UI,
 		MaxLayerType

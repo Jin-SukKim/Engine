@@ -20,7 +20,8 @@ namespace JE {
 
         void UpdateRect();
         const Rectangle& GetRect() { return _bound; };
-
+        
+        const Matrix3x3& GetTransformMatrix();
     private:
 		Vector2 _size = Vector2::One;
         Rectangle _bound;

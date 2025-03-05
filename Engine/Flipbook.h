@@ -33,6 +33,7 @@ namespace JE {
 	
 		void Reset();
 		const std::wstring& Name() const { return _spriteName; }
+		void SetLoop(bool loop) { _bLoop = loop; }
 		bool IsLoop() const { return _bLoop; }
 		bool IsComplete() const { return _bComplete; }
 		void SetAnimator(Animator2DComponent* animator) { _animator = animator; }
@@ -49,7 +50,7 @@ namespace JE {
 		std::vector<Sprite> _animationSheet = {};
 		bool _bLoop = true;				 // 반복 할지
 		bool _bComplete = false;		     // Animation 종료 여부
-		uint32 _index = -1;
+		int32 _index = -1;
 		float _time = 0.f;
 	};
 
